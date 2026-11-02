@@ -2,1963 +2,489 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>INPRECASA | Maritime Safety &amp; Fire Protection — Canary Islands</title>
-<meta name="description" content="Maritime safety, life-saving appliances, fire protection, testing and technical services across the Canary Islands. INPRECASA.">
-<meta property="og:title" content="INPRECASA | Maritime Safety &amp; Fire Protection — Canary Islands">
-<meta property="og:description" content="Maritime safety, life-saving appliances, fire protection, testing and technical services across the Canary Islands.">
+<meta name="description" content="Inspection, servicing and certification of liferafts, lifeboats, fire-fighting systems and personal protective equipment, plus crane load tests and calibration. Bases in Tenerife and Las Palmas.">
+<meta name="theme-color" content="#0D2E38">
+<link rel="canonical" href="https://inprecasa.com/">
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="INPRECASA">
+<meta property="og:title" content="INPRECASA | Maritime Safety &amp; Fire Protection — Canary Islands">
+<meta property="og:description" content="Liferafts, lifeboats, fire-fighting systems, PPE, crane load tests and calibration. Technical teams in Tenerife and Las Palmas.">
+<meta property="og:url" content="https://inprecasa.com/">
+<meta property="og:image" content="https://inprecasa.com/assets/img/og-image.jpg">
 <meta property="og:locale" content="en_US">
 <meta property="og:locale:alternate" content="es_ES">
 <meta property="og:locale:alternate" content="de_DE">
-<!-- hreflang-ready: this prototype serves EN/ES/DE client-side; a deployed
-     multilingual build would split these into /en/, /es/, /de/ with proper
-     hreflang tags pointing at each. -->
-<link rel="canonical" href="https://inprecasa.com/">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Expanded:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
-<style>
-/* ==========================================================================
-   INPRECASA — Design tokens (palette drawn from the logo: teal + terracotta)
-   ========================================================================== */
-:root {
-  --navy-950: #0D2E38;   /* primary dark — deepened from the logo teal */
-  --navy-900: #123F4B;   /* secondary dark surface */
-  --navy-800: #165363;   /* logo teal — links, active states */
-  --navy-700: #1A5F70;
-  --off-white: #F5F4F0;
-  --white: #FFFFFF;
-  --steel: #5C6E73;
-  --steel-light: #9FB3B8;
-  --line: #DCE3E2;
-  --line-dark: rgba(255,255,255,0.14);
-  --signal-orange: #D2472F;
-  --signal-orange-dark: #AE3A25;
+<meta property="og:locale:alternate" content="fr_FR">
+<meta property="og:locale:alternate" content="it_IT">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="assets/fonts/Archivo-600.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/IBMPlexSans-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" href="assets/img/at-sea.webp" fetchpriority="high">
+<link rel="stylesheet" href="assets/css/styles.css">
+<script>document.documentElement.className += " js";</script>
 
-  --font-display: "Archivo Expanded", "Arial Narrow", sans-serif;
-  --font-body: "IBM Plex Sans", -apple-system, sans-serif;
-  --font-mono: "IBM Plex Mono", monospace;
-
-  --max-width: 1320px;
-  --gutter: clamp(24px, 5vw, 96px);
-
-  --ease: cubic-bezier(0.4, 0, 0.2, 1);
-  --radius: 14px;
-  --radius-sm: 8px;
-  --radius-pill: 999px;
-}
-
-/* ==========================================================================
-   Reset
-   ========================================================================== */
-*, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
-}
-body {
-  margin: 0;
-  font-family: var(--font-body);
-  color: var(--navy-950);
-  background: var(--white);
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-}
-img { max-width: 100%; display: block; }
-a { color: inherit; text-decoration: none; }
-button { font: inherit; cursor: pointer; }
-ul { margin: 0; padding: 0; list-style: none; }
-h1, h2, h3, h4 { margin: 0; font-family: var(--font-display); font-weight: 600; letter-spacing: -0.01em; }
-p { margin: 0; }
-
-.skip-link {
-  position: absolute; left: -999px; top: 0; z-index: 200;
-  background: var(--navy-950); color: var(--white); padding: 12px 20px;
-}
-.skip-link:focus { left: 16px; top: 16px; }
-
-:focus-visible {
-  outline: 2px solid var(--signal-orange);
-  outline-offset: 3px;
-}
-
-.section-inner {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding-left: var(--gutter);
-  padding-right: var(--gutter);
-}
-
-.section-kicker {
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  color: var(--signal-orange-dark);
-  margin-bottom: 14px;
-  display: block;
-}
-.section-kicker-light { color: var(--signal-orange); }
-
-.section-title {
-  font-size: clamp(1.7rem, 3vw, 2.4rem);
-  line-height: 1.15;
-  max-width: 20ch;
-  margin-bottom: 20px;
-}
-.section-title-light { color: var(--white); }
-
-.section-intro {
-  color: var(--steel);
-  max-width: 60ch;
-  font-size: 1.05rem;
-  margin-bottom: 40px;
-}
-
-.verify-tag {
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  color: var(--signal-orange-dark);
-  letter-spacing: 0.02em;
-}
-
-/* ==========================================================================
-   Buttons
-   ========================================================================== */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 15px 30px;
-  font-size: 0.95rem;
-  font-weight: 500;
-  border: 1px solid transparent;
-  border-radius: var(--radius-pill);
-  transition: background 0.25s var(--ease), color 0.2s var(--ease), border-color 0.2s var(--ease), transform 0.2s var(--ease), box-shadow 0.25s var(--ease);
-  white-space: nowrap;
-}
-.btn-small { padding: 11px 22px; font-size: 0.88rem; }
-.btn-primary {
-  background: linear-gradient(135deg, #E85B3A 0%, var(--signal-orange) 48%, var(--signal-orange-dark) 100%);
-  color: var(--white);
-  box-shadow: 0 6px 20px rgba(210, 71, 47, 0.32);
-}
-.btn-primary:hover {
-  background: linear-gradient(135deg, #EC6C4E 0%, #DD522F 48%, var(--signal-orange-dark) 100%);
-  transform: translateY(-2px);
-  box-shadow: 0 10px 26px rgba(210, 71, 47, 0.4);
-}
-.btn-primary:active { transform: translateY(0); }
-.btn-ghost {
-  border-color: var(--line-dark);
-  color: var(--white);
-}
-.btn-ghost:hover { border-color: var(--white); background: rgba(255,255,255,0.08); transform: translateY(-2px); }
-.btn-outline {
-  border-color: var(--navy-950);
-  color: var(--navy-950);
-}
-.btn-outline:hover { background: var(--navy-950); color: var(--white); transform: translateY(-2px); }
-
-/* ==========================================================================
-   Header
-   ========================================================================== */
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: rgba(255, 255, 255, 0.94);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--line);
-  transition: padding 0.25s var(--ease), box-shadow 0.25s var(--ease);
-}
-.site-header.is-condensed { box-shadow: 0 1px 0 var(--line); }
-.header-inner {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 18px var(--gutter);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  transition: padding 0.25s var(--ease);
-}
-.site-header.is-condensed .header-inner { padding-top: 11px; padding-bottom: 11px; }
-
-.logo { display: flex; align-items: center; flex-shrink: 0; }
-.logo-mark-img { height: 32px; width: auto; display: block; }
-
-.main-nav { display: flex; gap: 30px; flex: 1; justify-content: center; }
-.main-nav a {
-  color: var(--navy-950);
-  font-size: 0.9rem;
-  position: relative;
-  padding: 4px 0;
-}
-.main-nav a::after {
-  content: "";
-  position: absolute;
-  left: 0; bottom: -2px;
-  width: 0; height: 1px;
-  background: var(--signal-orange);
-  transition: width 0.2s var(--ease);
-}
-.main-nav a:hover::after { width: 100%; }
-
-.header-actions { display: flex; align-items: center; gap: 16px; }
-
-.lang-switch { position: relative; }
-.lang-toggle {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  background: none;
-  border: 1px solid var(--line);
-  border-radius: var(--radius-pill);
-  padding: 8px 14px;
-  font-family: var(--font-mono);
-  font-size: 0.74rem;
-  color: var(--navy-950);
-  transition: border-color 0.2s var(--ease), background 0.2s var(--ease);
-}
-.lang-toggle:hover { border-color: var(--navy-950); }
-.lang-toggle-caret {
-  width: 8px; height: 8px;
-  border-right: 1.5px solid currentColor;
-  border-bottom: 1.5px solid currentColor;
-  transform: rotate(45deg) translateY(-2px);
-  transition: transform 0.2s var(--ease);
-}
-.lang-switch.is-open .lang-toggle-caret { transform: rotate(-135deg) translateY(1px); }
-.lang-menu {
-  position: absolute;
-  top: calc(100% + 8px);
-  right: 0;
-  min-width: 168px;
-  background: var(--white);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-sm);
-  box-shadow: 0 16px 36px rgba(13,46,56,0.14);
-  padding: 6px;
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-6px);
-  transition: opacity 0.18s var(--ease), transform 0.18s var(--ease), visibility 0.18s;
-  z-index: 50;
-}
-.lang-switch.is-open .lang-menu { opacity: 1; visibility: visible; transform: translateY(0); }
-.lang-option {
-  display: flex;
-  align-items: baseline;
-  gap: 10px;
-  background: none;
-  border: none;
-  border-radius: var(--radius-sm);
-  padding: 9px 12px;
-  text-align: left;
-  font-family: var(--font-body);
-  font-size: 0.88rem;
-  color: var(--navy-950);
-  transition: background 0.15s var(--ease);
-}
-.lang-option:hover { background: var(--off-white); }
-.lang-option.is-active { background: var(--navy-950); color: var(--white); }
-.lang-option-code { font-family: var(--font-mono); font-size: 0.72rem; color: var(--signal-orange-dark); width: 22px; }
-.lang-option.is-active .lang-option-code { color: var(--signal-orange); }
-
-.nav-toggle {
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  gap: 5px;
-  width: 32px; height: 32px;
-  background: none; border: none;
-}
-.nav-toggle span {
-  display: block; height: 1.5px; width: 100%;
-  background: var(--navy-950);
-  transition: transform 0.25s var(--ease), opacity 0.25s var(--ease);
-}
-.nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
-.nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
-.nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
-
-/* ==========================================================================
-   Hero
-   ========================================================================== */
-.hero {
-  position: relative;
-  min-height: 90vh;
-  display: flex;
-  align-items: flex-end;
-  color: var(--white);
-  overflow: hidden;
-}
-.hero-media { position: absolute; inset: 0; background: var(--navy-950); }
-.hero-img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  opacity: 0.68;
-  animation: hero-zoom 18s var(--ease) forwards;
-}
-@keyframes hero-zoom {
-  from { transform: scale(1.08); }
-  to { transform: scale(1); }
-}
-@media (prefers-reduced-motion: reduce) {
-  .hero-img { animation: none; }
-}
-.hero::after {
-  content: "";
-  position: absolute; inset: 0;
-  background: linear-gradient(0deg, var(--navy-950) 0%, rgba(18,63,75,0.35) 45%, rgba(18,63,75,0.55) 100%);
-}
-.hero-content {
-  position: relative;
-  z-index: 2;
-  max-width: var(--max-width);
-  width: 100%;
-  margin: 0 auto;
-  padding: 0 var(--gutter) 88px;
-}
-.hero-eyebrow {
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  color: var(--steel-light);
-  margin-bottom: 22px;
-}
-.hero-headline {
-  font-size: clamp(2.4rem, 5.6vw, 4.6rem);
-  line-height: 1.04;
-  max-width: 17ch;
-  margin-bottom: 26px;
-}
-.hero-sub {
-  font-size: 1.1rem;
-  max-width: 50ch;
-  color: rgba(255,255,255,0.88);
-  margin-bottom: 40px;
-}
-.hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
-
-/* ==========================================================================
-   Proof bar
-   ========================================================================== */
-.trust-bar { background: var(--white); border-bottom: 1px solid var(--line); }
-.trust-grid {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 52px var(--gutter);
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 32px;
-}
-.trust-item { display: flex; flex-direction: column; gap: 8px; border-left: 1px solid var(--line); padding-left: 22px; }
-.trust-figure { font-family: var(--font-display); font-size: 2.2rem; color: var(--navy-950); line-height: 1; }
-.trust-label { font-size: 0.84rem; color: var(--steel); line-height: 1.4; }
-
-/* ==========================================================================
-   About
-   ========================================================================== */
-.about { padding: 112px 0; }
-.about-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 72px; align-items: center; }
-.about-title { max-width: none; }
-.about-lead {
-  font-family: var(--font-display);
-  font-weight: 500;
-  font-size: 1.4rem;
-  line-height: 1.35;
-  color: var(--navy-950);
-  margin-bottom: 24px;
-}
-.about-copy-col p { color: var(--steel); font-size: 1.02rem; max-width: 60ch; margin-bottom: 18px; }
-.about-media-col img {
-  width: 100%;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
-  border-radius: var(--radius);
-}
-
-/* ==========================================================================
-   Services — interactive explorer
-   ========================================================================== */
-.services { padding: 112px 0; background: var(--white); }
-
-.service-explorer {
-  display: grid;
-  grid-template-columns: 320px 1fr;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-}
-
-.service-nav {
-  background: var(--navy-950);
-  display: flex;
-  flex-direction: column;
-}
-.service-nav-item {
-  display: flex;
-  align-items: baseline;
-  gap: 14px;
-  background: none;
-  border: none;
-  border-left: 2px solid transparent;
-  border-bottom: 1px solid var(--line-dark);
-  padding: 22px 24px;
-  text-align: left;
-  cursor: pointer;
-  transition: background 0.2s var(--ease), border-color 0.2s var(--ease);
-}
-.service-nav-item:last-child { border-bottom: none; }
-.service-nav-item:hover { background: rgba(255,255,255,0.04); }
-.service-nav-item.is-active { background: rgba(255,255,255,0.06); border-left-color: var(--signal-orange); }
-.service-nav-code {
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  color: var(--steel-light);
-  flex-shrink: 0;
-}
-.service-nav-item.is-active .service-nav-code { color: var(--signal-orange); }
-.service-nav-name {
-  font-family: var(--font-display);
-  font-size: 1.02rem;
-  color: rgba(255,255,255,0.72);
-  transition: color 0.2s var(--ease);
-}
-.service-nav-item.is-active .service-nav-name,
-.service-nav-item:hover .service-nav-name { color: var(--white); }
-
-.service-panel {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  min-height: 480px;
-}
-.service-panel-media { overflow: hidden; background: var(--off-white); }
-.service-panel-media img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: opacity 0.25s var(--ease), transform 6s var(--ease);
-}
-.service-panel-text {
-  padding: 44px 44px 40px;
-  display: flex;
-  flex-direction: column;
-}
-.service-panel-code {
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  color: var(--signal-orange-dark);
-  margin-bottom: 14px;
-}
-.service-panel-heading {
-  font-size: clamp(1.5rem, 2.6vw, 2rem);
-  line-height: 1.15;
-  margin-bottom: 22px;
-}
-.service-panel-label {
-  font-family: var(--font-mono);
-  font-size: 0.74rem;
-  color: var(--steel);
-  margin-bottom: 10px;
-  margin-top: 22px;
-}
-.service-panel-text > .service-panel-label:first-of-type { margin-top: 0; }
-.service-panel-what { font-size: 1rem; color: var(--navy-950); line-height: 1.6; max-width: 46ch; }
-.service-panel-eq { display: flex; flex-direction: column; gap: 8px; margin-bottom: 8px; }
-.service-panel-eq li { font-size: 0.94rem; color: var(--navy-950); padding-left: 15px; position: relative; }
-.service-panel-eq li::before { content: ""; position: absolute; left: 0; top: 9px; width: 5px; height: 5px; background: var(--signal-orange); }
-.service-panel-text .btn { margin-top: auto; align-self: flex-start; }
-
-.service-fade { animation: service-fade-in 0.3s var(--ease); }
-@keyframes service-fade-in {
-  from { opacity: 0; transform: translateY(6px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* ==========================================================================
-   Facilities
-   ========================================================================== */
-.facilities { padding: 112px 0; background: var(--off-white); }
-.facilities-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(2, 240px);
-  gap: 4px;
-}
-.facilities-item { position: relative; margin: 0; overflow: hidden; border-radius: var(--radius-sm); }
-.facilities-item--wide { grid-column: span 2; grid-row: span 2; }
-.facilities-item img { width: 100%; height: 100%; object-fit: cover; }
-.facilities-item figcaption {
-  position: absolute; left: 0; right: 0; bottom: 0;
-  padding: 12px 14px;
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  color: var(--white);
-  background: linear-gradient(0deg, rgba(18,63,75,0.85), rgba(18,63,75,0));
-}
-
-/* ==========================================================================
-   Process
-   ========================================================================== */
-.process { padding: 112px 0; background: var(--navy-950); color: var(--white); }
-.process-track {
-  position: relative;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 24px;
-  padding-top: 44px;
-}
-.process-line {
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 1px;
-  background: var(--line-dark);
-}
-.process-line-fill {
-  display: block;
-  height: 100%;
-  width: 0%;
-  background: var(--signal-orange);
-  transition: width 0.4s var(--ease);
-}
-.process-step { display: flex; flex-direction: column; gap: 14px; opacity: 0.5; transition: opacity 0.4s var(--ease); }
-.process-step.is-active { opacity: 1; }
-.process-num { font-family: var(--font-mono); font-size: 0.85rem; color: var(--signal-orange); }
-.process-step h3 { font-size: 1.15rem; color: var(--white); }
-.process-step p { font-size: 0.9rem; color: var(--steel-light); line-height: 1.55; }
-
-/* ==========================================================================
-   Certifications — auto-scrolling marquee of pending cards
-   ========================================================================== */
-.certifications { padding: 112px 0 96px; background: var(--white); overflow: hidden; }
-
-.cert-marquee {
-  position: relative;
-  width: 100%;
-  margin-top: 44px;
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
-  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
-}
-.cert-track {
-  display: flex;
-  gap: 20px;
-  width: max-content;
-  animation: cert-scroll 32s linear infinite;
-}
-.cert-marquee:hover .cert-track { animation-play-state: paused; }
-
-@keyframes cert-scroll {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-
-.cert-pill {
-  flex: 0 0 auto;
-  width: 260px;
-  min-height: 168px;
-  border-radius: var(--radius);
-  padding: 24px 22px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  gap: 8px;
-  position: relative;
-  overflow: hidden;
-  background:
-    radial-gradient(circle at 15% 20%, rgba(210,71,47,0.35), transparent 45%),
-    radial-gradient(circle at 85% 85%, rgba(22,83,99,0.9), transparent 55%),
-    linear-gradient(135deg, #123F4B 0%, #0D2E38 60%, #1A5F70 100%);
-  border: 1px solid rgba(255,255,255,0.08);
-}
-.cert-pill-icon {
-  width: 30px; height: 30px;
-  margin-bottom: 6px;
-  border: 1.5px dashed rgba(255,255,255,0.55);
-  border-radius: 50%;
-  position: relative;
-}
-.cert-pill-icon::before {
-  content: "";
-  position: absolute;
-  left: 50%; top: 50%;
-  width: 10px; height: 10px;
-  border-right: 1.5px solid rgba(255,255,255,0.75);
-  border-bottom: 1.5px solid rgba(255,255,255,0.75);
-  transform: translate(-50%, -60%) rotate(-45deg);
-}
-.cert-pill-title {
-  font-family: var(--font-mono);
-  font-size: 0.82rem;
-  letter-spacing: 0.06em;
-  color: var(--white);
-}
-.cert-pill-sub {
-  font-size: 0.78rem;
-  color: rgba(255,255,255,0.6);
-  line-height: 1.4;
-}
-
-/* ==========================================================================
-   Locations — Tenerife shown first, as headquarters
-   ========================================================================== */
-.locations { padding: 112px 0; background: var(--white); }
-.location-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 28px; align-items: stretch; }
-.location-card {
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-}
-.location-card--hq { border-color: var(--navy-950); box-shadow: 0 16px 36px rgba(13,46,56,0.1); }
-.location-hq-tag {
-  display: inline-block;
-  align-self: flex-start;
-  margin: 20px 24px 0;
-  padding: 5px 12px;
-  border-radius: var(--radius-pill);
-  background: var(--signal-orange);
-  color: var(--white);
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.02em;
-}
-.location-map {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  border: none;
-  display: block;
-  filter: grayscale(0.15) contrast(1.02);
-}
-.location-card--hq .location-map { aspect-ratio: 16 / 10; }
-.location-card h3 { font-size: 1.2rem; padding: 20px 24px 6px; }
-.location-address { color: var(--steel); padding: 0 24px; margin-bottom: 16px; }
-.location-links { display: flex; align-items: center; gap: 18px; padding: 0 24px 8px; flex-wrap: wrap; }
-.location-phone { font-family: var(--font-mono); font-size: 0.92rem; color: var(--signal-orange-dark); }
-.location-maplink { font-family: var(--font-mono); font-size: 0.78rem; color: var(--steel); border-bottom: 1px solid var(--line); transition: color 0.2s var(--ease), border-color 0.2s var(--ease); }
-.location-maplink:hover { color: var(--navy-950); border-color: var(--navy-950); }
-.location-cta { margin: 14px 24px 24px; align-self: flex-start; }
-
-/* ==========================================================================
-   Final CTA
-   ========================================================================== */
-.final-cta {
-  position: relative;
-  color: var(--white);
-  padding: 148px 0;
-  overflow: hidden;
-  background: var(--navy-950);
-}
-.final-cta-media {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-}
-.final-cta-media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.55;
-}
-.final-cta::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  background: linear-gradient(100deg, rgba(13,46,56,0.94) 0%, rgba(13,46,56,0.75) 45%, rgba(13,46,56,0.4) 100%);
-}
-.final-cta-inner { position: relative; z-index: 1; text-align: left; }
-.final-cta h2 { font-size: clamp(2.1rem, 4.6vw, 3.4rem); line-height: 1.08; margin-bottom: 26px; }
-.final-cta p { color: var(--steel-light); font-size: 1.08rem; max-width: 46ch; margin-bottom: 36px; }
-
-/* ==========================================================================
-   Contact
-   ========================================================================== */
-.contact { padding: 112px 0; }
-.contact-grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 72px; }
-.contact-direct { margin-top: 36px; display: flex; flex-direction: column; gap: 18px; }
-.contact-direct p { font-size: 0.95rem; color: var(--steel); }
-.contact-direct strong { color: var(--navy-950); font-family: var(--font-mono); font-size: 0.74rem; display: block; margin-bottom: 4px; font-weight: 500; }
-.contact-direct a { color: var(--signal-orange-dark); }
-
-.contact-form { display: grid; gap: 20px; }
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-.contact-form label { display: flex; flex-direction: column; gap: 8px; font-size: 0.8rem; font-family: var(--font-mono); color: var(--steel); }
-.contact-form input, .contact-form select, .contact-form textarea {
-  font-family: var(--font-body); font-size: 0.96rem; color: var(--navy-950);
-  padding: 13px 14px; border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--white);
-}
-.contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus { border-color: var(--navy-950); }
-.full-width { grid-column: 1 / -1; }
-.file-label input { padding: 10px 14px; }
-.contact-form button { justify-self: start; margin-top: 6px; }
-.form-status { font-size: 0.88rem; color: var(--signal-orange-dark); font-family: var(--font-mono); min-height: 1.2em; }
-
-/* ==========================================================================
-   Footer
-   ========================================================================== */
-.site-footer { background: var(--navy-950); color: var(--white); padding-top: 88px; }
-.footer-grid { display: grid; grid-template-columns: 1.3fr 1fr 0.7fr 1fr 1fr; gap: 36px; padding-bottom: 56px; border-bottom: 1px solid var(--line-dark); }
-.footer-brand { font-family: var(--font-display); font-size: 1.25rem; letter-spacing: 0.02em; margin-bottom: 6px; }
-.footer-tagline { color: var(--steel-light); font-size: 0.88rem; }
-.footer-col h4 { font-family: var(--font-mono); font-size: 0.72rem; color: var(--steel-light); font-weight: 500; margin-bottom: 16px; }
-.footer-col a, .footer-col p { display: block; color: rgba(255,255,255,0.82); font-size: 0.88rem; margin-bottom: 10px; }
-.footer-col a:hover { color: var(--signal-orange); }
-.footer-bottom { padding: 26px var(--gutter); font-size: 0.78rem; color: var(--steel-light); }
-
-/* ==========================================================================
-   Floating actions
-   ========================================================================== */
-.mobile-action-bar {
-  display: none;
-  position: fixed;
-  left: 0; right: 0; bottom: 0;
-  z-index: 90;
-  background: var(--navy-950);
-  border-top: 1px solid var(--line-dark);
-}
-.mobile-action {
-  flex: 1;
-  text-align: center;
-  padding: 16px 10px;
-  font-size: 0.86rem;
-  font-weight: 500;
-  color: var(--white);
-}
-.mobile-action--primary { background: var(--signal-orange); }
-.mobile-action--call { background: var(--navy-950); border-left: 1px solid var(--line-dark); }
-
-@media (max-width: 768px) {
-  .mobile-action-bar { display: flex; }
-  body { padding-bottom: 56px; }
-}
-@media (min-width: 769px) {
-  .mobile-action-bar { display: none; }
-}
-
-/* ==========================================================================
-   Scroll reveal
-   ========================================================================== */
-[data-reveal] { opacity: 0; transform: translateY(16px); transition: opacity 0.55s var(--ease), transform 0.55s var(--ease); }
-[data-reveal].is-visible { opacity: 1; transform: translateY(0); }
-
-/* ==========================================================================
-   Responsive
-   ========================================================================== */
-@media (max-width: 1024px) {
-  .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 44px; }
-  .about-media-col { order: -1; }
-  .about-media-col img { aspect-ratio: 16 / 9; }
-  .trust-grid { grid-template-columns: repeat(2, 1fr); }
-  .service-explorer { grid-template-columns: 1fr; }
-  .service-nav { flex-direction: row; flex-wrap: wrap; }
-  .service-nav-item { flex: 1 1 50%; border-left: none; border-top: 2px solid transparent; }
-  .service-nav-item.is-active { border-top-color: var(--signal-orange); border-left-color: transparent; }
-  .service-panel { grid-template-columns: 1fr; }
-  .service-panel-media { aspect-ratio: 16 / 9; }
-  .location-grid { grid-template-columns: 1fr; }
-  .process-track { grid-template-columns: repeat(3, 1fr); row-gap: 32px; }
-  .facilities-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(3, 200px); }
-  .facilities-item--wide { grid-column: span 2; grid-row: span 1; }
-}
-
-@media (max-width: 768px) {
-  .main-nav { display: none; }
-  .nav-toggle { display: flex; }
-  .header-actions .btn-small { display: none; }
-  .lang-switch { order: -1; }
-
-  .main-nav.is-open {
-    display: flex; flex-direction: column; gap: 0;
-    position: fixed; top: 65px; left: 0; right: 0; bottom: 0;
-    background: var(--navy-950);
-    padding: 12px var(--gutter) 40px;
-    z-index: 99;
-  }
-  .main-nav.is-open a { color: var(--white); padding: 18px 0; border-bottom: 1px solid var(--line-dark); font-size: 1.05rem; }
-
-  .hero { min-height: 100vh; }
-  .about, .services, .facilities, .process, .certifications, .locations, .final-cta, .contact { padding: 76px 0; }
-  .service-nav-item { flex: 1 1 50%; padding: 16px 14px; }
-  .service-nav-name { font-size: 0.9rem; }
-  .service-panel-text { padding: 32px 24px 34px; }
-  .cert-pill { width: 220px; min-height: 150px; padding: 20px 18px; }
-  .process-track { grid-template-columns: 1fr 1fr; }
-  .process-line { display: none; }
-  .facilities-grid { grid-template-columns: 1fr; grid-template-rows: repeat(5, 220px); }
-  .facilities-item--wide { grid-column: span 1; grid-row: span 1; }
-  .form-row { grid-template-columns: 1fr; }
-  .footer-grid { grid-template-columns: 1fr 1fr; }
-}
-
-</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://inprecasa.com/#organization",
+      "name": "INPRECASA",
+      "legalName": "Industria de Prevención Canaria, S.L.",
+      "url": "https://inprecasa.com/",
+      "logo": "https://inprecasa.com/assets/img/inprecasa-logo.svg",
+      "email": "inprecasa@inprecasa.com",
+      "slogan": "Your safety at sea",
+      "description": "Maritime safety and fire protection services in the Canary Islands: liferafts, lifeboats, fire-fighting systems, personal protective equipment, crane load tests and calibration.",
+      "areaServed": "Canary Islands",
+      "department": [
+        {
+          "@type": "LocalBusiness",
+          "@id": "https://inprecasa.com/#tenerife",
+          "name": "INPRECASA Tenerife",
+          "telephone": "+34922650131",
+          "address": { "@type": "PostalAddress", "streetAddress": "C/ Fonseca, 10, La Cuesta", "postalCode": "38320", "addressLocality": "San Cristóbal de La Laguna", "addressRegion": "Santa Cruz de Tenerife", "addressCountry": "ES" },
+          "geo": { "@type": "GeoCoordinates", "latitude": 28.4578823, "longitude": -16.2939048 }
+        },
+        {
+          "@type": "LocalBusiness",
+          "@id": "https://inprecasa.com/#laspalmas",
+          "name": "INPRECASA Las Palmas",
+          "telephone": "+34928469422",
+          "address": { "@type": "PostalAddress", "streetAddress": "C/ Sucre, 22 Izq, El Sebadal", "postalCode": "35008", "addressLocality": "Las Palmas de Gran Canaria", "addressRegion": "Las Palmas", "addressCountry": "ES" },
+          "geo": { "@type": "GeoCoordinates", "latitude": 28.1568198, "longitude": -15.416858 }
+        }
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://inprecasa.com/#website",
+      "url": "https://inprecasa.com/",
+      "name": "INPRECASA",
+      "publisher": { "@id": "https://inprecasa.com/#organization" },
+      "inLanguage": ["en", "es", "de", "fr", "it"]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "How often do liferafts need servicing?", "acceptedAnswer": { "@type": "Answer", "text": "As a general rule, SOLAS liferafts must be serviced at intervals not exceeding 12 months, and always according to the manufacturer's instructions and the vessel's flag requirements." } },
+        { "@type": "Question", "name": "Do you work on board or in your workshop?", "acceptedAnswer": { "@type": "Answer", "text": "Both. Inspections can be carried out on board or in our workshops in Tenerife and Las Palmas, depending on the equipment and the scope of work." } },
+        { "@type": "Question", "name": "What information do you need for a quote?", "acceptedAnswer": { "@type": "Answer", "text": "Vessel name and IMO number (if applicable), the service or equipment involved, the port and your preferred dates." } }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
+<!-- Icon sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-ship" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l2 3h14l2-3-9-3-9 3zM6 14V9h12v5M12 9V4M9 6h6"/></symbol>
+    <symbol id="i-wrench" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 6.5a4 4 0 0 0 5 5L21 13l-8 8-3-3 8-8-1.5-1.5zM3 21l6-6"/></symbol>
+    <symbol id="i-sail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v14M12 4c4 2 6 6 6 11h-6M12 8c-3 2-5 5-5 9h5M4 20h16"/></symbol>
+  </defs>
+</svg>
+
 <a class="skip-link" href="#main" data-i18n="a11y.skip">Skip to content</a>
 
-<!-- ============ NAV ============ -->
+<!-- Utility bar (desktop) -->
+<div class="util-bar">
+  <div class="util-inner">
+    <div class="util-group">
+      <a href="tel:+34922650131"><b data-i18n="util.hq">Tenerife (HQ)</b> +34 922 650 131</a>
+      <a href="tel:+34928469422"><b data-i18n="util.lp">Las Palmas</b> +34 928 469 422</a>
+    </div>
+    <a href="mailto:inprecasa@inprecasa.com">inprecasa@inprecasa.com</a>
+  </div>
+</div>
+
 <header class="site-header" id="site-header">
   <div class="header-inner">
-    <a href="#home" class="logo">
-      <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI1LjIuMywgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkNhcGFfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiCgkgdmlld0JveD0iMCAwIDcxMCAyMTMuMyIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNzEwIDIxMy4zOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+Cgkuc3Qwe2ZpbGw6IzE2NTM2Mzt9Cgkuc3Qxe2ZpbGw6I0QyNDcyRjt9Cgkuc3Qye2ZpbGw6IzE3NTM2Mzt9Cgkuc3Qze2VuYWJsZS1iYWNrZ3JvdW5kOm5ldyAgICA7fQo8L3N0eWxlPgo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNNzYuMSwzNS4zaDIwLjR2MTkuM0g3Ni4xVjM1LjN6IE03Ni4xLDU5LjRoMjAuNHYxMTEuNWwwLDBjLTExLjMsMC0yMC40LTkuMS0yMC40LTIwLjRjMCwwLDAsMCwwLDBWNTkuNHoiLz4KPHBhdGggY2xhc3M9InN0MSIgZD0iTTE3Ny45LDE1Ni45Yy0yNy43LDM5LjQtODIuMiw0OC44LTEyMS41LDIxLjFTNy41LDk1LjgsMzUuMiw1Ni40czgyLjItNDguOCwxMjEuNS0yMS4xCgljNi42LDQuNiwxMi41LDEwLjEsMTcuNSwxNi40SDE5OEMxNjcuNiwxLjIsMTAyLjEtMTUuMSw1MS43LDE1LjNzLTY2LjgsOTUuOS0zNi40LDE0Ni4zczk1LjksNjYuOCwxNDYuMywzNi40CgljMTYuNS05LjksMzAtMjQuMiwzOS4xLTQxLjJIMTc3Ljl6Ii8+CjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0xNjMuOCwxMDAuMmMtMC4yLTIxLjYtMTcuOS0zOS0zOS41LTM4LjdjLTAuNSwwLTEsMC0xLjUsMHYtMC4yaC0xNy44djEwOS42aDE3Ljh2LTMyLjIKCUMxNDUuNiwxMzcuOCwxNjMuOCwxMjAuOSwxNjMuOCwxMDAuMnogTTEyMi44LDEyMlY3OC40YzEyLjUsMC45LDIyLjQsMTAuMywyMi40LDIxLjhTMTM1LjQsMTIxLjEsMTIyLjgsMTIyTDEyMi44LDEyMnoiLz4KPHJlY3QgeD0iMjA5LjgiIHk9IjE0OC4zIiBjbGFzcz0ic3QxIiB3aWR0aD0iNDgyLjkiIGhlaWdodD0iNy4zIi8+CjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0yMzUuMiw1OC41aDE0LjZsMzYsNTguMWgwLjJWNTguNWgxMy4xdjgwLjNoLTE0LjVsLTM1LjktNTguNWwtMC4zLTAuOXY1OS40aC0xMy4xVjU4LjV6Ii8+CjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik00MDMuNSw1OC42aDQ2djEzLjRoLTMzLjF2MjcuN2wyNy45LDAuMXYxMS44bC0yNi45LTAuMXYxNmgzMi45djEyaC00Ni44TDQwMy41LDU4LjZ6Ii8+CjxwYXRoIGNsYXNzPSJzdDIiIGQ9Ik01NzUuOSwxMzguMkw1NTEsNTlsLTAuMi0wLjdoLTEzLjZMNTM3LDU5bC0yNC45LDc5LjFsLTAuNCwxLjNoMTMuOGwwLjItMC43bDUuOS0xOS41SDU1Nmw1LjksMTkuNWwwLjIsMC43CgloMTQuM0w1NzUuOSwxMzguMnogTTU1Mi40LDEwNy4xaC0xNy4xbDguNi0yOC44TDU1Mi40LDEwNy4xeiIvPgo8cGF0aCBjbGFzcz0ic3QyIiBkPSJNNjkwLjIsMTM4LjFsLTI1LTc5LjJsLTAuMi0wLjdoLTEzLjVsLTAuMiwwLjdsLTI0LjksNzkuMmwtMC40LDEuM2gxMy44bDAuMi0wLjdsNS45LTE5LjVoMjQuNGw1LjksMTkuNQoJbDAuMiwwLjdoMTQuM0w2OTAuMiwxMzguMXogTTY2Ni42LDEwN2gtMTcuMWw4LjYtMjguOEw2NjYuNiwxMDd6Ii8+CjxwYXRoIGNsYXNzPSJzdDIiIGQ9Ik02MjcsMTA4LjZjLTAuNS0yLTEuMy00LTIuNC01LjhjLTEuMS0xLjgtMi40LTMuNS00LTQuOGMtMS43LTEuNS0zLjYtMi42LTUuNy0zLjRsMCwwbC00LjEtMS4zbC01LjktMS44CgljLTItMC42LTMuOC0xLjItNS40LTEuN2wtMi44LTAuOWMtMS45LTAuNi0zLjYtMS43LTUtMy4yYy0xLjMtMS42LTItMy42LTEuOS01LjZjLTAuMS0xLjUsMC4zLTMsMS00LjNjMC42LTEuMSwxLjQtMiwyLjQtMi43CgljMS0wLjcsMi4yLTEuMiwzLjQtMS40YzEuMi0wLjMsMi41LTAuNCwzLjctMC40YzMuMi0wLjEsNi4zLDAuOSw4LjgsMi44YzIuMiwxLjgsMy41LDUsMy44LDkuNnYxaDEzdi0xYzAuMS0zLjctMC42LTcuNC0yLTEwLjgKCWMtMS4zLTMtMy4xLTUuNy01LjUtNy45Yy0yLjMtMi4xLTUtMy44LTgtNC44Yy0zLjEtMS4xLTYuNC0xLjYtOS43LTEuNmMtMywwLTUuOSwwLjUtOC43LDEuNGMtMi44LDAuOS01LjUsMi4zLTcuOCw0LjMKCWMtMi4zLDItNC4yLDQuNS01LjUsNy4zYy0xLjUsMy4yLTIuMiw2LjgtMi4xLDEwLjNjMCwyLDAuMiw0LDAuNyw2YzEsNC4yLDMuNCw4LDYuOSwxMC42YzIuMSwxLjYsNC41LDIuOCw3LjEsMy41CgljNC4zLDEuNCw4LDIuNiwxMSwzLjRjMi42LDAuOCw1LjIsMS43LDcuNywyLjhjMS4zLDAuNiwyLjQsMS41LDMuMiwyLjZjMC45LDEuMiwxLjQsMy4xLDEuNCw1LjhjMCwxLjMtMC4yLDIuNi0wLjcsMy45CgljLTAuNCwxLjItMS4xLDIuMy0yLjEsMy4zYy0xLjEsMS0yLjQsMS45LTMuOCwyLjRjLTEuOSwwLjctMy44LDEtNS44LDAuOWMtMiwwLTQtMC4zLTUuOS0wLjljLTEuNy0wLjUtMy4zLTEuNC00LjctMi43CgljLTEuNC0xLjMtMi41LTIuOS0zLjItNC43Yy0wLjgtMi4yLTEuMi00LjYtMS4yLTd2LTFoLTEzLjF2MWMwLDQuMywwLjgsOC41LDIuMywxMi41YzEuMywzLjMsMy4zLDYuMyw1LjksOC44CgljMi41LDIuMyw1LjQsNCw4LjcsNS4xYzMuNCwxLjEsNi45LDEuNywxMC41LDEuNmMzLjIsMCw2LjQtMC41LDkuNS0xLjRjMy4xLTAuOSw1LjktMi40LDguNC00LjRjMi41LTIuMSw0LjYtNC43LDYtNy43CgljMS42LTMuNSwyLjQtNy40LDIuMy0xMS4zQzYyNy44LDExMi43LDYyNy41LDExMC42LDYyNywxMDguNnoiLz4KPHBhdGggY2xhc3M9InN0MiIgZD0iTTUxMy4yLDEwNi45aC0xMi41bC0wLjEsMC45Yy0wLjIsMi41LTAuNyw1LjEtMS42LDcuNWMtMC43LDIuMi0xLjgsNC4yLTMuMiw2Yy0xLjMsMS43LTMsMy00LjksNAoJYy0yLDEtNC4zLDEuNS02LjYsMS40Yy0zLjEsMC4xLTYuMi0wLjctOC44LTIuM2MtMi41LTEuNS00LjYtMy43LTYuMS02LjJjLTEuNy0yLjgtMi45LTUuOC0zLjUtOWMtMS41LTYuOC0xLjUtMTMuOSwwLTIwLjcKCWMwLjctMy4yLDEuOS02LjIsMy41LTljMS41LTIuNSwzLjYtNC42LDYuMS02LjJjNC42LTIuNSwxMC0zLDE1LTEuMmMxLjcsMC43LDMuMiwxLjcsNC42LDIuOWMxLjMsMS4zLDIuNCwyLjgsMy4yLDQuNQoJYzAuOSwxLjksMS42LDMuOCwyLDUuOGwwLjIsMC44aDEzLjhsLTAuMS0xLjFjLTAuMy0zLjktMS4zLTcuNy0zLTExLjJjLTEuNi0zLjItMy44LTYuMS02LjUtOC40Yy0yLjctMi4zLTUuOC00LjEtOS4yLTUuMwoJYy0zLjYtMS4yLTcuMy0xLjgtMTEtMS44Yy00LjktMC4xLTkuOCwxLjEtMTQuMSwzLjNjLTQuMSwyLjItNy43LDUuMi0xMC41LDguOGMtMywzLjktNS4yLDguMi02LjYsMTIuOWMtMywxMC4yLTMsMjEsMCwzMS4yCgljMS40LDQuNywzLjYsOSw2LjYsMTIuOWMyLjgsMy43LDYuNCw2LjcsMTAuNSw4LjhjNC40LDIuMiw5LjIsMy4zLDE0LjEsMy4yYzQsMCw4LTAuNywxMS43LTIuM2MzLjUtMS41LDYuNy0zLjcsOS4zLTYuNQoJYzIuNy0yLjksNC44LTYuMyw2LjItMTBjMS42LTQuMSwyLjUtOC40LDIuNy0xMi43bDAuMS0xLjFMNTEzLjIsMTA2Ljl6Ii8+CjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0yMTMuMSw1OGgxM3YxMi4zaC0xM1Y1OHogTTIxMy4xLDczLjNoMTN2NjZsMCwwYy03LjIsMC0xMy01LjgtMTMtMTNWNzMuM3oiLz4KPHBhdGggY2xhc3M9InN0MCIgZD0iTTM1Mi43LDg3LjRjLTAuMi0xNS45LTEzLjItMjguNi0yOS0yOC40Yy0wLjQsMC0wLjcsMC0xLjEsMHYtMC4yaC0xM3Y4MC40aDEzdi0yMy42CglDMzM5LjQsMTE1LDM1Mi43LDEwMi42LDM1Mi43LDg3LjR6IE0zMjIuNywxMDMuNHYtMzJjOS4yLDAuNywxNi40LDcuNiwxNi40LDE2UzMzMS45LDEwMi44LDMyMi43LDEwMy40TDMyMi43LDEwMy40eiIvPgo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMzk5LjksODcuNGMtMC4yLTE1LjktMTMuMi0yOC42LTI5LTI4LjRjLTAuNCwwLTAuNywwLTEuMSwwdi0wLjJoLTEzdjgwLjRoMTN2LTIzLjZjMi4xLTAuMSw0LjItMC40LDYuMy0wLjkKCWw4LjQsMjQuM2gxMS40bC05LjktMjguM0MzOTQuNCwxMDUuOCwzOTkuOSw5Ny4yLDM5OS45LDg3LjR6IE0zNjkuOCw3MS40YzkuMiwwLjcsMTYuNCw3LjYsMTYuNCwxNnMtNy4yLDE1LjMtMTYuNCwxNlY3MS40eiIvPgo8ZyBjbGFzcz0ic3QzIj4KCTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0yMjIuNCwxODguOWwtNS41LTE4aC0wLjFjMCwwLjQsMC4xLDEuMSwwLjEsMS45czAuMSwxLjgsMC4xLDIuOGMwLDEsMC4xLDEuOSwwLjEsMi42djEwLjdoLTQuM1YxNjZoNi42CgkJbDUuNCwxNy41aDAuMWw1LjgtMTcuNWg2LjZ2MjIuOWgtNC41di0xMC45YzAtMC43LDAtMS42LDAtMi41YzAtMC45LDAuMS0xLjgsMC4xLTIuN2MwLTAuOSwwLjEtMS41LDAuMS0xLjloLTAuMWwtNS45LDE4SDIyMi40eiIKCQkvPgoJPHBhdGggY2xhc3M9InN0MCIgZD0iTTI1OC45LDE4OC45bC0xLjctNS41aC04LjRsLTEuNyw1LjVIMjQybDguMS0yM2g1LjlsOC4xLDIzSDI1OC45eiBNMjU2LjEsMTc5LjRsLTEuNy01LjMKCQljLTAuMS0wLjQtMC4yLTAuOC0wLjQtMS40Yy0wLjItMC42LTAuMy0xLjEtMC41LTEuN2MtMC4yLTAuNi0wLjMtMS4xLTAuNC0xLjVjLTAuMSwwLjQtMC4yLDEtMC40LDEuNnMtMC40LDEuMi0wLjUsMS44CgkJYy0wLjIsMC42LTAuMywxLTAuNCwxLjJsLTEuNiw1LjNIMjU2LjF6Ii8+Cgk8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMjc1LjYsMTY2YzIuMSwwLDMuOCwwLjMsNS4yLDAuOGMxLjQsMC41LDIuNCwxLjMsMywyLjNjMC43LDEsMSwyLjMsMSwzLjhjMCwxLTAuMiwyLTAuNiwyLjcKCQljLTAuNCwwLjgtMC45LDEuNC0xLjYsMmMtMC42LDAuNS0xLjMsMS0yLjEsMS4zbDYuNywxMGgtNS40bC01LjUtOC44aC0yLjZ2OC44aC00LjlWMTY2SDI3NS42eiBNMjc1LjMsMTcwaC0xLjV2Ni4yaDEuNgoJCWMxLjYsMCwyLjgtMC4zLDMuNS0wLjhjMC43LTAuNSwxLTEuMywxLTIuNGMwLTEuMS0wLjQtMS45LTEuMS0yLjNDMjc4LDE3MC4yLDI3Ni44LDE3MCwyNzUuMywxNzB6Ii8+Cgk8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMjkyLDE4OC45VjE2Nmg0Ljl2MjIuOUgyOTJ6Ii8+Cgk8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMzEzLjQsMTg4LjloLTQuOVYxNzBoLTYuMnYtNGgxNy4zdjRoLTYuMlYxODguOXoiLz4KCTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0zMjUuMSwxODguOVYxNjZoNC45djIyLjlIMzI1LjF6Ii8+Cgk8cGF0aCBjbGFzcz0ic3QwIiBkPSJNMzQ3LjMsMTg4LjlsLTUuNS0xOGgtMC4xYzAsMC40LDAuMSwxLjEsMC4xLDEuOXMwLjEsMS44LDAuMSwyLjhjMCwxLDAuMSwxLjksMC4xLDIuNnYxMC43aC00LjNWMTY2aDYuNgoJCWw1LjQsMTcuNWgwLjFsNS44LTE3LjVoNi42djIyLjloLTQuNXYtMTAuOWMwLTAuNywwLTEuNiwwLTIuNXMwLjEtMS44LDAuMS0yLjdjMC0wLjksMC4xLTEuNSwwLjEtMS45aC0wLjFsLTUuOSwxOEgzNDcuM3oiLz4KCTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0zODMsMTg4LjloLTEzLjJWMTY2SDM4M3Y0aC04LjN2NWg3Ljh2NGgtNy44djUuOWg4LjNWMTg4Ljl6Ii8+Cgk8cGF0aCBjbGFzcz0ic3QwIiBkPSJNNDEzLjUsMTgyLjZjMCwxLjQtMC4zLDIuNS0xLDMuNWMtMC43LDEtMS42LDEuOC0yLjksMi4zcy0yLjgsMC44LTQuNiwwLjhjLTAuOCwwLTEuNi0wLjEtMi4zLTAuMgoJCWMtMC44LTAuMS0xLjUtMC4zLTIuMi0wLjVjLTAuNy0wLjItMS40LTAuNS0yLTAuOHYtNC41YzEuMSwwLjUsMi4yLDAuOSwzLjQsMS4zYzEuMiwwLjQsMi4zLDAuNiwzLjUsMC42YzAuOCwwLDEuNC0wLjEsMS45LTAuMwoJCWMwLjUtMC4yLDAuOC0wLjUsMS4xLTAuOWMwLjItMC40LDAuMy0wLjgsMC4zLTEuM2MwLTAuNi0wLjItMS4xLTAuNi0xLjVjLTAuNC0wLjQtMC45LTAuOC0xLjYtMS4xYy0wLjctMC40LTEuNC0wLjctMi4zLTEuMQoJCWMtMC41LTAuMy0xLjEtMC42LTEuNy0wLjljLTAuNi0wLjQtMS4yLTAuOC0xLjgtMS4zYy0wLjYtMC41LTEtMS4yLTEuNC0xLjlzLTAuNS0xLjYtMC41LTIuN2MwLTEuNCwwLjMtMi41LDAuOS0zLjUKCQljMC42LTEsMS41LTEuNywyLjctMi4yYzEuMi0wLjUsMi41LTAuOCw0LjEtMC44YzEuMiwwLDIuMywwLjEsMy40LDAuNGMxLjEsMC4zLDIuMiwwLjcsMy40LDEuMmwtMS42LDMuOGMtMS4xLTAuNC0yLTAuOC0yLjgtMQoJCXMtMS43LTAuNC0yLjYtMC40Yy0wLjYsMC0xLjEsMC4xLTEuNiwwLjNjLTAuNCwwLjItMC44LDAuNS0xLDAuOHMtMC4zLDAuOC0wLjMsMS4yYzAsMC41LDAuMiwxLDAuNSwxLjRjMC4zLDAuNCwwLjgsMC43LDEuNCwxLjEKCQljMC42LDAuMywxLjQsMC43LDIuNCwxLjJjMS4yLDAuNiwyLjIsMS4xLDMsMS43czEuNSwxLjMsMS45LDIuMUM0MTMuMywxODAuNCw0MTMuNSwxODEuNCw0MTMuNSwxODIuNnoiLz4KCTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik00MzMuNiwxODguOWwtMS43LTUuNWgtOC40bC0xLjcsNS41aC01LjJsOC4xLTIzaDUuOWw4LjEsMjNINDMzLjZ6IE00MzAuOCwxNzkuNGwtMS43LTUuMwoJCWMtMC4xLTAuNC0wLjItMC44LTAuNC0xLjRjLTAuMi0wLjYtMC4zLTEuMS0wLjUtMS43Yy0wLjItMC42LTAuMy0xLjEtMC40LTEuNWMtMC4xLDAuNC0wLjIsMS0wLjQsMS42Yy0wLjIsMC42LTAuNCwxLjItMC41LDEuOAoJCWMtMC4yLDAuNi0wLjMsMS0wLjQsMS4ybC0xLjYsNS4zSDQzMC44eiIvPgoJPHBhdGggY2xhc3M9InN0MCIgZD0iTTQ0OC40LDE4OC45aC00LjhWMTY2aDEzLjJ2NGgtOC40djUuOWg3Ljh2NGgtNy44VjE4OC45eiIvPgoJPHBhdGggY2xhc3M9InN0MCIgZD0iTTQ3Ni40LDE4OC45aC0xMy4yVjE2NmgxMy4ydjRINDY4djVoNy44djRINDY4djUuOWg4LjNWMTg4Ljl6Ii8+Cgk8cGF0aCBjbGFzcz0ic3QwIiBkPSJNNDkxLjksMTg4LjlINDg3VjE3MGgtNi4ydi00aDE3LjN2NGgtNi4yVjE4OC45eiIvPgoJPHBhdGggY2xhc3M9InN0MCIgZD0iTTUxMC43LDE3NS40bDQuOC05LjRoNS4ybC03LjYsMTR2OC45aC00Ljh2LTguOGwtNy42LTE0LjJoNS4zTDUxMC43LDE3NS40eiIvPgoJPHBhdGggY2xhc3M9InN0MCIgZD0iTTU0OS4zLDE4Mi42YzAsMS40LTAuMywyLjUtMSwzLjVjLTAuNywxLTEuNiwxLjgtMi45LDIuM3MtMi44LDAuOC00LjYsMC44Yy0wLjgsMC0xLjYtMC4xLTIuMy0wLjIKCQljLTAuOC0wLjEtMS41LTAuMy0yLjItMC41Yy0wLjctMC4yLTEuNC0wLjUtMi0wLjh2LTQuNWMxLjEsMC41LDIuMiwwLjksMy40LDEuM2MxLjIsMC40LDIuMywwLjYsMy41LDAuNmMwLjgsMCwxLjQtMC4xLDEuOS0wLjMKCQljMC41LTAuMiwwLjgtMC41LDEuMS0wLjljMC4yLTAuNCwwLjMtMC44LDAuMy0xLjNjMC0wLjYtMC4yLTEuMS0wLjYtMS41Yy0wLjQtMC40LTAuOS0wLjgtMS42LTEuMWMtMC43LTAuNC0xLjQtMC43LTIuMy0xLjEKCQljLTAuNS0wLjMtMS4xLTAuNi0xLjctMC45Yy0wLjYtMC40LTEuMi0wLjgtMS44LTEuM2MtMC42LTAuNS0xLTEuMi0xLjQtMS45cy0wLjUtMS42LTAuNS0yLjdjMC0xLjQsMC4zLTIuNSwwLjktMy41CgkJYzAuNi0xLDEuNS0xLjcsMi43LTIuMmMxLjItMC41LDIuNS0wLjgsNC4xLTAuOGMxLjIsMCwyLjMsMC4xLDMuNCwwLjRjMS4xLDAuMywyLjIsMC43LDMuNCwxLjJsLTEuNiwzLjhjLTEuMS0wLjQtMi0wLjgtMi44LTEKCQlzLTEuNy0wLjQtMi42LTAuNGMtMC42LDAtMS4xLDAuMS0xLjYsMC4zYy0wLjQsMC4yLTAuOCwwLjUtMSwwLjhzLTAuMywwLjgtMC4zLDEuMmMwLDAuNSwwLjIsMSwwLjUsMS40YzAuMywwLjQsMC44LDAuNywxLjQsMS4xCgkJYzAuNiwwLjMsMS40LDAuNywyLjQsMS4yYzEuMiwwLjYsMi4yLDEuMSwzLDEuN3MxLjUsMS4zLDEuOSwyLjFDNTQ5LjEsMTgwLjQsNTQ5LjMsMTgxLjQsNTQ5LjMsMTgyLjZ6Ii8+Cgk8cGF0aCBjbGFzcz0ic3QwIiBkPSJNNTY4LjYsMTg4LjloLTEzLjJWMTY2aDEzLjJ2NGgtOC4zdjVoNy44djRoLTcuOHY1LjloOC4zVjE4OC45eiIvPgoJPHBhdGggY2xhc3M9InN0MCIgZD0iTTU4MS45LDE2NmMyLjEsMCwzLjgsMC4zLDUuMiwwLjhjMS40LDAuNSwyLjQsMS4zLDMsMi4zczEsMi4zLDEsMy44YzAsMS0wLjIsMi0wLjYsMi43CgkJYy0wLjQsMC44LTAuOSwxLjQtMS42LDJzLTEuMywxLTIuMSwxLjNsNi43LDEwaC01LjRsLTUuNS04LjhoLTIuNnY4LjhoLTQuOVYxNjZINTgxLjl6IE01ODEuNiwxNzBoLTEuNXY2LjJoMS42CgkJYzEuNiwwLDIuOC0wLjMsMy41LTAuOGMwLjctMC41LDEtMS4zLDEtMi40YzAtMS4xLTAuNC0xLjktMS4xLTIuM0M1ODQuMywxNzAuMiw1ODMuMSwxNzAsNTgxLjYsMTcweiIvPgoJPHBhdGggY2xhc3M9InN0MCIgZD0iTTYxNi40LDE2NmwtNy44LDIyLjloLTUuM2wtNy44LTIyLjloNC45bDQuMywxMy43YzAuMSwwLjIsMC4yLDAuNywwLjQsMS4zczAuMywxLjMsMC41LDIKCQljMC4yLDAuNywwLjMsMS4zLDAuNCwxLjdjMC4xLTAuNSwwLjItMSwwLjMtMS43YzAuMi0wLjcsMC4zLTEuNCwwLjUtMmMwLjItMC42LDAuMy0xLjEsMC40LTEuM2w0LjMtMTMuN0g2MTYuNHoiLz4KCTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik02MjEuMSwxODguOVYxNjZoNC45djIyLjlINjIxLjF6Ii8+Cgk8cGF0aCBjbGFzcz0ic3QwIiBkPSJNNjQzLjQsMTY5LjdjLTAuOSwwLTEuOCwwLjItMi41LDAuNWMtMC43LDAuNC0xLjMsMC45LTEuOCwxLjZjLTAuNSwwLjctMC45LDEuNS0xLjEsMi41Yy0wLjMsMS0wLjQsMi0wLjQsMy4yCgkJYzAsMS42LDAuMiwzLDAuNiw0LjJjMC40LDEuMSwxLDIsMS45LDIuNnMxLjksMC45LDMuMywwLjljMC45LDAsMS45LTAuMSwyLjgtMC4zYzAuOS0wLjIsMi0wLjUsMy4xLTAuOXY0LjFjLTEsMC40LTIsMC43LTMsMC45CgkJcy0yLjEsMC4zLTMuMywwLjNjLTIuNCwwLTQuMy0wLjUtNS44LTEuNXMtMi42LTIuMy0zLjQtNC4xcy0xLjEtMy44LTEuMS02LjJjMC0xLjcsMC4yLTMuMywwLjctNC44YzAuNS0xLjQsMS4yLTIuNywyLjEtMy44CgkJczItMS45LDMuNC0yLjRjMS4zLTAuNiwyLjktMC45LDQuNi0wLjljMS4xLDAsMi4zLDAuMSwzLjQsMC40YzEuMSwwLjMsMi4yLDAuNywzLjMsMS4ybC0xLjYsNGMtMC45LTAuNC0xLjctMC44LTIuNi0xLjEKCQlDNjQ1LjEsMTY5LjksNjQ0LjMsMTY5LjcsNjQzLjQsMTY5Ljd6Ii8+Cgk8cGF0aCBjbGFzcz0ic3QwIiBkPSJNNjY5LjMsMTg4LjlINjU2VjE2NmgxMy4ydjRoLTguM3Y1aDcuOHY0aC03Ljh2NS45aDguM1YxODguOXoiLz4KCTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik02ODkuNSwxODIuNmMwLDEuNC0wLjMsMi41LTEsMy41Yy0wLjcsMS0xLjYsMS44LTIuOSwyLjNzLTIuOCwwLjgtNC42LDAuOGMtMC44LDAtMS42LTAuMS0yLjMtMC4yCgkJYy0wLjgtMC4xLTEuNS0wLjMtMi4yLTAuNWMtMC43LTAuMi0xLjQtMC41LTItMC44di00LjVjMS4xLDAuNSwyLjIsMC45LDMuNCwxLjNjMS4yLDAuNCwyLjMsMC42LDMuNSwwLjZjMC44LDAsMS40LTAuMSwxLjktMC4zCgkJYzAuNS0wLjIsMC44LTAuNSwxLjEtMC45YzAuMi0wLjQsMC4zLTAuOCwwLjMtMS4zYzAtMC42LTAuMi0xLjEtMC42LTEuNWMtMC40LTAuNC0wLjktMC44LTEuNi0xLjFjLTAuNy0wLjQtMS40LTAuNy0yLjMtMS4xCgkJYy0wLjUtMC4zLTEuMS0wLjYtMS43LTAuOWMtMC42LTAuNC0xLjItMC44LTEuOC0xLjNjLTAuNi0wLjUtMS0xLjItMS40LTEuOXMtMC41LTEuNi0wLjUtMi43YzAtMS40LDAuMy0yLjUsMC45LTMuNQoJCWMwLjYtMSwxLjUtMS43LDIuNy0yLjJjMS4yLTAuNSwyLjUtMC44LDQuMS0wLjhjMS4yLDAsMi4zLDAuMSwzLjQsMC40YzEuMSwwLjMsMi4yLDAuNywzLjQsMS4ybC0xLjYsMy44Yy0xLjEtMC40LTItMC44LTIuOC0xCgkJcy0xLjctMC40LTIuNi0wLjRjLTAuNiwwLTEuMSwwLjEtMS42LDAuM2MtMC40LDAuMi0wLjgsMC41LTEsMC44cy0wLjMsMC44LTAuMywxLjJjMCwwLjUsMC4yLDEsMC41LDEuNGMwLjMsMC40LDAuOCwwLjcsMS40LDEuMQoJCWMwLjYsMC4zLDEuNCwwLjcsMi40LDEuMmMxLjIsMC42LDIuMiwxLjEsMywxLjdzMS41LDEuMywxLjksMi4xQzY4OS4zLDE4MC40LDY4OS41LDE4MS40LDY4OS41LDE4Mi42eiIvPgo8L2c+Cjwvc3ZnPgo=" alt="INPRECASA" class="logo-mark-img">
-    </a>
+    <a href="#home" class="logo" aria-label="INPRECASA"><img src="assets/img/inprecasa-logo.svg" alt="INPRECASA — Industria de Prevención Canaria" width="144" height="43"></a>
 
-    <nav class="main-nav" id="main-nav">
-      <a href="#home" data-i18n="nav.home">Home</a>
+    <nav class="main-nav" aria-label="Main">
       <a href="#about" data-i18n="nav.about">About</a>
       <a href="#services" data-i18n="nav.services">Services</a>
-      <a href="#certifications" data-i18n="nav.certifications">Certifications</a>
+      <a href="#sectors" data-i18n="nav.sectors">Who we serve</a>
+      <a href="#compliance" data-i18n="nav.compliance">Compliance</a>
       <a href="#locations" data-i18n="nav.locations">Locations</a>
       <a href="#contact" data-i18n="nav.contact">Contact</a>
     </nav>
 
     <div class="header-actions">
       <div class="lang-switch" id="lang-switch">
-        <button type="button" class="lang-toggle" id="lang-toggle" aria-haspopup="true" aria-expanded="false">
-          <span id="lang-toggle-label">EN</span>
-          <span class="lang-toggle-caret" aria-hidden="true"></span>
+        <button type="button" class="lang-toggle" id="lang-toggle" aria-haspopup="true" aria-expanded="false" aria-label="Language">
+          <span id="lang-label">EN</span><span class="lang-caret" aria-hidden="true"></span>
         </button>
         <div class="lang-menu" id="lang-menu" role="menu">
-          <button type="button" class="lang-option" data-lang="en" role="menuitem"><span class="lang-option-code">EN</span><span>English</span></button>
-          <button type="button" class="lang-option" data-lang="es" role="menuitem"><span class="lang-option-code">ES</span><span>Español</span></button>
-          <button type="button" class="lang-option" data-lang="fr" role="menuitem"><span class="lang-option-code">FR</span><span>Français</span></button>
-          <button type="button" class="lang-option" data-lang="de" role="menuitem"><span class="lang-option-code">DE</span><span>Deutsch</span></button>
-          <button type="button" class="lang-option" data-lang="it" role="menuitem"><span class="lang-option-code">IT</span><span>Italiano</span></button>
+          <button type="button" class="lang-option" data-lang="en" role="menuitem"><span class="lang-option-code">EN</span>English</button>
+          <button type="button" class="lang-option" data-lang="es" role="menuitem"><span class="lang-option-code">ES</span>Español</button>
+          <button type="button" class="lang-option" data-lang="de" role="menuitem"><span class="lang-option-code">DE</span>Deutsch</button>
+          <button type="button" class="lang-option" data-lang="fr" role="menuitem"><span class="lang-option-code">FR</span>Français</button>
+          <button type="button" class="lang-option" data-lang="it" role="menuitem"><span class="lang-option-code">IT</span>Italiano</button>
         </div>
       </div>
-      <a href="#contact" class="btn btn-primary btn-small" data-i18n="nav.requestService">Request service</a>
-      <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+      <a href="#contact" class="btn btn-primary btn-sm" data-i18n="nav.requestService">Request service</a>
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </div>
 </header>
 
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+  <nav aria-label="Mobile">
+    <a href="#about" data-i18n="nav.about">About</a>
+    <a href="#services" data-i18n="nav.services">Services</a>
+    <a href="#sectors" data-i18n="nav.sectors">Who we serve</a>
+    <a href="#compliance" data-i18n="nav.compliance">Compliance</a>
+    <a href="#locations" data-i18n="nav.locations">Locations</a>
+    <a href="#contact" data-i18n="nav.contact">Contact</a>
+  </nav>
+  <div class="mm-contact">
+    <a class="mm-call" href="tel:+34922650131"><span><small data-i18n="util.hq">Tenerife (HQ)</small><strong>+34 922 650 131</strong></span><svg width="20" height="20"><use href="#i-phone"/></svg></a>
+    <a class="mm-call" href="tel:+34928469422"><span><small data-i18n="util.lp">Las Palmas</small><strong>+34 928 469 422</strong></span><svg width="20" height="20"><use href="#i-phone"/></svg></a>
+    <a class="btn btn-primary btn-block" href="#contact" data-i18n="nav.requestService">Request service</a>
+  </div>
+</div>
+
 <main id="main">
 
-  <!-- ============ HERO ============ -->
+  <!-- HERO -->
   <section class="hero" id="home">
     <div class="hero-media" aria-hidden="true">
-      <img
-        src="https://images.unsplash.com/photo-1759273560543-7f0e66af2a4d?auto=format&fit=crop&w=2400&q=80"
-        alt=""
-        class="hero-img"
-        loading="eager">
+      <img src="assets/img/at-sea.webp" alt="" width="1090" height="826" fetchpriority="high" decoding="async">
     </div>
-    <div class="hero-content">
-      <p class="hero-eyebrow" data-i18n="hero.eyebrow">Industria de Prevención Canaria, S.L. — Tenerife · Las Palmas</p>
-      <h1 class="hero-headline" data-i18n-html="hero.headline">Maritime safety.<br>Engineered for the sea.</h1>
-      <p class="hero-sub" data-i18n="hero.sub">Specialized maritime safety, life-saving and fire protection services for the maritime industry across the Canary Islands.</p>
-      <div class="hero-actions">
-        <a href="#contact" class="btn btn-primary" data-i18n="hero.ctaPrimary">Request a service</a>
-        <a href="#services" class="btn btn-ghost" data-i18n="hero.ctaSecondary">Explore services</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ PROOF BAR ============ -->
-  <section class="trust-bar" aria-label="Company facts">
-    <div class="trust-grid">
-      <div class="trust-item">
-        <span class="trust-figure">30+</span>
-        <span class="trust-label" data-i18n="proof.years">Years of maritime safety experience</span>
-      </div>
-      <div class="trust-item">
-        <span class="trust-figure">2</span>
-        <span class="trust-label" data-i18n="proof.locations">Locations — Tenerife + Gran Canaria</span>
-      </div>
-      <div class="trust-item">
-        <span class="trust-figure">4</span>
-        <span class="trust-label" data-i18n="proof.services">Core service lines</span>
-      </div>
-      <div class="trust-item">
-        <span class="trust-figure">CIS</span>
-        <span class="trust-label" data-i18n="proof.network">Canary Islands maritime service network</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ ABOUT ============ -->
-  <section class="about" id="about">
-    <div class="section-inner about-grid">
-      <div class="about-copy-col">
-        <p class="section-kicker" data-i18n="about.kicker">About INPRECASA</p>
-        <h2 class="section-title about-title" data-i18n="about.title">Maritime safety is our business.</h2>
-        <p class="about-lead" data-i18n="about.lead">INPRECASA is the commercial brand of Industria de Prevención Canaria, S.L., a family-owned company based in the Canary Islands.</p>
-        <p data-i18n="about.p1">For more than three decades we have provided maritime safety and fire protection services to vessel operators, shipping companies and technical departments across the archipelago.</p>
-        <p data-i18n="about.p2">We operate from two bases — our headquarters in Tenerife and a second base in Las Palmas de Gran Canaria — combining technical expertise, inspection, maintenance, testing and safety equipment servicing under a single provider.</p>
-      </div>
-      <div class="about-media-col">
-        <img
-          src="https://images.pexels.com/photos/5092828/pexels-photo-5092828.jpeg?auto=compress&cs=tinysrgb&w=1200"
-          alt="Lifeboats aboard a vessel operating at sea"
-          class="about-img"
-          loading="lazy">
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ SERVICES ============ -->
-  <section class="services" id="services">
-    <div class="section-inner">
-      <p class="section-kicker" data-i18n="services.kicker">Services</p>
-      <h2 class="section-title" data-i18n="services.title">Five areas of technical coverage</h2>
-
-      <div class="service-explorer">
-        <div class="service-nav" role="tablist" aria-label="Services" id="service-nav">
-          <button class="service-nav-item is-active" data-service-id="lsa" role="tab" aria-selected="true">
-            <span class="service-nav-code">01</span>
-            <span class="service-nav-name" data-i18n="services.lsa.name">Life-saving appliances</span>
-          </button>
-          <button class="service-nav-item" data-service-id="fire" role="tab" aria-selected="false">
-            <span class="service-nav-code">02</span>
-            <span class="service-nav-name" data-i18n="services.fire.name">Fire safety</span>
-          </button>
-          <button class="service-nav-item" data-service-id="ppe" role="tab" aria-selected="false">
-            <span class="service-nav-code">03</span>
-            <span class="service-nav-name" data-i18n="services.ppe.name">Personal protection</span>
-          </button>
-          <button class="service-nav-item" data-service-id="testing" role="tab" aria-selected="false">
-            <span class="service-nav-code">04</span>
-            <span class="service-nav-name" data-i18n="services.testing.name">Testing &amp; calibration</span>
-          </button>
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <p class="hero-eyebrow" data-i18n="hero.eyebrow">Industria de Prevención Canaria, S.L. — Tenerife · Las Palmas</p>
+        <h1 class="hero-headline" data-i18n-html="hero.headline">Maritime safety.<br>Engineered for the sea.</h1>
+        <p class="hero-sub" data-i18n="hero.sub2">Inspection, servicing and certification of life-saving, fire-fighting and personal protective equipment — with technical teams in Tenerife and Las Palmas.</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary" data-i18n="hero.ctaPrimary">Request a service</a>
+          <a href="#services" class="btn btn-ghost" data-i18n="hero.ctaSecondary">Explore services</a>
         </div>
+        <ul class="hero-chips">
+          <li class="chip" data-i18n="hero.chip1">Two bases: Tenerife &amp; Gran Canaria</li>
+          <li class="chip" data-i18n="hero.chip2">On board or in our workshop</li>
+          <li class="chip" data-i18n="hero.chip3">30+ years in maritime safety</li>
+        </ul>
+      </div>
 
-        <div class="service-panel">
-          <div class="service-panel-media">
-            <img id="service-panel-img" src="https://images.pexels.com/photos/22305102/pexels-photo-22305102.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Orange lifeboat secured on a ship deck" loading="lazy">
-          </div>
-          <div class="service-panel-text">
-            <span class="service-panel-code" id="service-panel-code">01</span>
-            <h3 class="service-panel-heading" id="service-panel-name" data-i18n="services.lsa.name">Life-saving appliances</h3>
-            <p class="service-panel-label" data-i18n="services.labelWhat">What we do</p>
-            <p class="service-panel-what" id="service-panel-what" data-i18n="services.lsa.what">Inspection, servicing and certification of liferafts and lifeboats, including launching and recovery systems, so equipment is ready to perform in an emergency.</p>
-            <p class="service-panel-label" data-i18n="services.labelEquipment">Equipment</p>
-            <ul class="service-panel-eq" id="service-panel-eq"></ul>
-            <a href="#contact" class="btn btn-outline btn-small" data-i18n="services.cta">Request this service</a>
+      <aside class="hero-card" aria-labelledby="hc-title">
+        <h2 id="hc-title" data-i18n="hc.title">Talk to a technician</h2>
+        <p data-i18n="hc.sub">Tell us the vessel and the service. We confirm scope and scheduling.</p>
+        <div class="hc-list">
+          <a class="hc-line" href="tel:+34922650131"><span><small data-i18n="util.hq">Tenerife (HQ)</small><strong>+34 922 650 131</strong></span><svg class="ic"><use href="#i-phone"/></svg></a>
+          <a class="hc-line" href="tel:+34928469422"><span><small data-i18n="util.lp">Las Palmas</small><strong>+34 928 469 422</strong></span><svg class="ic"><use href="#i-phone"/></svg></a>
+          <a class="hc-line" href="mailto:inprecasa@inprecasa.com"><span><small data-i18n="hc.email">Email us</small><strong style="font-size:.82rem">inprecasa@inprecasa.com</strong></span><svg class="ic"><use href="#i-mail"/></svg></a>
+        </div>
+        <a href="#contact" class="btn btn-primary btn-block" data-i18n="hc.cta">Request a service</a>
+      </aside>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats" aria-label="Company facts">
+    <div class="stats-grid">
+      <div class="stat"><span class="stat-fig"><span data-count="30">30</span><sup>+</sup></span><span class="stat-lbl" data-i18n="stat.years">Years of maritime safety experience</span></div>
+      <div class="stat"><span class="stat-fig"><span data-count="2">2</span></span><span class="stat-lbl" data-i18n="stat.bases">Bases: Tenerife and Gran Canaria</span></div>
+      <div class="stat"><span class="stat-fig"><span data-count="6">6</span></span><span class="stat-lbl" data-i18n="stat.lines">Technical service lines</span></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="section-inner">
+      <div class="about-grid">
+        <div class="about-copy" data-reveal>
+          <span class="kicker" data-i18n="about.kicker">About INPRECASA</span>
+          <h2 class="section-title" data-i18n="about.title2">Maritime safety is our business.</h2>
+          <p class="about-lead" data-i18n="about.lead">INPRECASA is the commercial brand of Industria de Prevención Canaria, S.L., a family-owned company based in the Canary Islands.</p>
+          <p data-i18n="about.p1">For more than three decades we have provided maritime safety and fire protection services to vessel operators, shipping companies and technical departments across the archipelago.</p>
+          <p data-i18n="about.p2">We operate from two bases — our headquarters in Tenerife and a second base in Las Palmas de Gran Canaria — combining technical expertise, inspection, maintenance, testing and safety equipment servicing under a single provider.</p>
+        </div>
+        <div class="about-media" data-reveal>
+          <img src="assets/img/horizon.webp" alt="Silhouette walking along a pier toward a ship on the horizon" width="1090" height="1200" loading="lazy" decoding="async">
+        </div>
+      </div>
+
+      <div class="values" data-reveal>
+        <span class="kicker" data-i18n="val.kicker">Our values</span>
+        <h2 class="section-title" data-i18n="val.title">Trust. Resilience. Family.</h2>
+        <div class="values-grid" style="margin-top:28px">
+          <div class="value"><span class="value-n">01</span><h3 data-i18n="val.1.t">Expertise</h3><p data-i18n="val.1.d">Specialised technicians in life-saving, fire protection and testing.</p></div>
+          <div class="value"><span class="value-n">02</span><h3 data-i18n="val.2.t">Quality</h3><p data-i18n="val.2.d">Work carried out to the applicable requirements and properly documented.</p></div>
+          <div class="value"><span class="value-n">03</span><h3 data-i18n="val.3.t">Immediacy</h3><p data-i18n="val.3.d">Fast, direct response when a vessel needs support.</p></div>
+          <div class="value"><span class="value-n">04</span><h3 data-i18n="val.4.t">Customer service</h3><p data-i18n="val.4.d">A technical contact for every client, from a solo sailor to a large shipping company.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section section--tint" id="services">
+    <div class="section-inner">
+      <span class="kicker" data-i18n="services.kicker">Services</span>
+      <h2 class="section-title" data-i18n="services.title2">Six service lines. One technical partner.</h2>
+      <p class="section-intro" data-i18n="services.intro">Everything your vessel's safety equipment needs, under a single provider.</p>
+
+      <div class="svc" data-reveal>
+        <div class="svc-tabs" role="tablist" aria-label="Services" id="svc-tabs"></div>
+        <div class="svc-panel" id="svc-panel" role="tabpanel" aria-live="polite">
+          <div class="svc-media"><img id="svc-img" src="assets/img/liferafts.webp" alt="" width="1090" height="826" decoding="async"></div>
+          <div class="svc-text">
+            <span class="svc-code" id="svc-code">01 / 06</span>
+            <h3 class="svc-name" id="svc-name"></h3>
+            <p class="svc-what" id="svc-what"></p>
+            <p class="svc-label" data-i18n="svc.eq">Includes</p>
+            <ul class="svc-eq" id="svc-eq"></ul>
+            <a href="#contact" class="btn btn-primary" id="svc-cta" data-i18n="svc.requestThis">Request this service</a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ FACILITIES / OPERATIONS ============ -->
-  <section class="facilities" id="facilities">
+  <!-- WHO WE SERVE -->
+  <section class="section" id="sectors">
     <div class="section-inner">
-      <p class="section-kicker" data-i18n="facilities.kicker">Facilities</p>
-      <h2 class="section-title" data-i18n="facilities.title">Built for maritime operations</h2>
-      <p class="section-intro" data-i18n="facilities.intro">Workshop facilities in Tenerife and Las Palmas support inspection, servicing and testing work across the archipelago.</p>
-      <!-- Photography below is representative stock imagery, placed one-to-one so it can be
-           swapped for real INPRECASA site photography without changing the layout. -->
-      <div class="facilities-grid">
-        <figure class="facilities-item facilities-item--wide">
-          <img src="https://images.unsplash.com/photo-1759273560543-7f0e66af2a4d?auto=format&fit=crop&w=1600&q=80" alt="Industrial port with cranes and cargo vessel" loading="lazy">
-          <figcaption data-i18n="facilities.cap1">Port &amp; vessel environment</figcaption>
-        </figure>
-        <figure class="facilities-item">
-          <img src="https://images.pexels.com/photos/17156136/pexels-photo-17156136.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Technician operating machinery in an industrial workshop" loading="lazy">
-          <figcaption data-i18n="facilities.cap2">Workshop &amp; servicing</figcaption>
-        </figure>
-        <figure class="facilities-item">
-          <img src="https://images.pexels.com/photos/16630111/pexels-photo-16630111.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Precision measurement equipment in a technical workshop" loading="lazy">
-          <figcaption data-i18n="facilities.cap3">Testing &amp; calibration</figcaption>
-        </figure>
-        <figure class="facilities-item">
-          <img src="https://images.pexels.com/photos/29106030/pexels-photo-29106030.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Fire safety equipment in industrial storage" loading="lazy">
-          <figcaption data-i18n="facilities.cap4">Fire safety equipment</figcaption>
-        </figure>
+      <span class="kicker" data-i18n="aud.kicker">Who we serve</span>
+      <h2 class="section-title" data-i18n="aud.title">From a solo sailor to a large shipping company.</h2>
+      <div class="aud-grid" style="margin-top:32px">
+        <article class="aud" data-reveal><span class="aud-ic"><svg><use href="#i-ship"/></svg></span><h3 data-i18n="aud.1.t">Shipping companies</h3><p data-i18n="aud.1.d">Fleet-wide safety equipment servicing with a single technical partner.</p></article>
+        <article class="aud" data-reveal><span class="aud-ic"><svg><use href="#i-wrench"/></svg></span><h3 data-i18n="aud.2.t">Vessel operators &amp; technical departments</h3><p data-i18n="aud.2.d">Inspection, testing and documentation that keep vessels ready for survey and audit.</p></article>
+        <article class="aud" data-reveal><span class="aud-ic"><svg><use href="#i-sail"/></svg></span><h3 data-i18n="aud.3.t">Independent owners &amp; leisure vessels</h3><p data-i18n="aud.3.d">The same technical standard for smaller vessels and individual skippers.</p></article>
       </div>
     </div>
   </section>
 
-  <!-- ============ HOW WE WORK ============ -->
-  <section class="process" id="process">
+  <!-- PROCESS -->
+  <section class="section section--dark" id="process">
     <div class="section-inner">
-      <p class="section-kicker section-kicker-light" data-i18n="process.kicker">How we work</p>
-      <h2 class="section-title section-title-light" data-i18n="process.title">From inspection to ready</h2>
-      <div class="process-track" id="process-track">
-        <div class="process-line" aria-hidden="true"><span class="process-line-fill" id="process-line-fill"></span></div>
-        <div class="process-step" data-step="0">
-          <span class="process-num">01</span>
-          <h3 data-i18n="process.s1.title">Inspect</h3>
-          <p data-i18n="process.s1.desc">Technical inspection of equipment and systems on board or in our workshop.</p>
-        </div>
-        <div class="process-step" data-step="1">
-          <span class="process-num">02</span>
-          <h3 data-i18n="process.s2.title">Service</h3>
-          <p data-i18n="process.s2.desc">Maintenance and servicing carried out according to applicable requirements.</p>
-        </div>
-        <div class="process-step" data-step="2">
-          <span class="process-num">03</span>
-          <h3 data-i18n="process.s3.title">Test</h3>
-          <p data-i18n="process.s3.desc">Testing and verification confirm the equipment performs as required.</p>
-        </div>
-        <div class="process-step" data-step="3">
-          <span class="process-num">04</span>
-          <h3 data-i18n="process.s4.title">Document</h3>
-          <p data-i18n="process.s4.desc">Technical documentation and certification is issued where applicable.</p>
-        </div>
-        <div class="process-step" data-step="4">
-          <span class="process-num">05</span>
-          <h3 data-i18n="process.s5.title">Ready</h3>
-          <p data-i18n="process.s5.desc">Equipment is returned to the vessel, ready for operational use.</p>
-        </div>
+      <span class="kicker" data-i18n="process.kicker">How we work</span>
+      <h2 class="section-title" data-i18n="process.title">From inspection to ready</h2>
+      <div class="proc" id="proc">
+        <div class="proc-step"><span class="proc-n">01</span><div><h3 data-i18n="process.s1.title">Inspect</h3><p data-i18n="process.s1.desc">Technical inspection of equipment and systems on board or in our workshop.</p></div></div>
+        <div class="proc-step"><span class="proc-n">02</span><div><h3 data-i18n="process.s2.title">Service</h3><p data-i18n="process.s2.desc">Maintenance and servicing carried out according to applicable requirements.</p></div></div>
+        <div class="proc-step"><span class="proc-n">03</span><div><h3 data-i18n="process.s3.title">Test</h3><p data-i18n="process.s3.desc">Testing and verification confirm the equipment performs as required.</p></div></div>
+        <div class="proc-step"><span class="proc-n">04</span><div><h3 data-i18n="process.s4.title">Document</h3><p data-i18n="process.s4.desc">Technical documentation and certification is issued where applicable.</p></div></div>
+        <div class="proc-step"><span class="proc-n">05</span><div><h3 data-i18n="process.s5.title">Ready</h3><p data-i18n="process.s5.desc">Equipment is returned to the vessel, ready for operational use.</p></div></div>
       </div>
     </div>
   </section>
 
-  <!-- ============ CERTIFICATIONS ============ -->
-  <section class="certifications" id="certifications">
+  <!-- COMPLIANCE -->
+  <section class="section" id="compliance">
     <div class="section-inner">
-      <p class="section-kicker" data-i18n="cert.kicker">Certifications</p>
-      <h2 class="section-title" data-i18n="cert.title">Certifications &amp; approvals</h2>
-      <p class="section-intro" data-i18n="cert.intro">This section is reserved for INPRECASA's certifications, approvals and manufacturer authorisations once the supporting documentation is provided.</p>
-    </div>
-    <div class="cert-marquee" aria-hidden="false">
-      <div class="cert-track" id="cert-track">
-        <div class="cert-pill">
-          <span class="cert-pill-icon" aria-hidden="true"></span>
-          <span class="cert-pill-title" data-i18n="cert.pendingLabel">CERTIFICADO</span>
-          <span class="cert-pill-sub" data-i18n="cert.pendingSub">(Por subir, a la espera de documentación INPRECASA)</span>
-        </div>
-        <div class="cert-pill">
-          <span class="cert-pill-icon" aria-hidden="true"></span>
-          <span class="cert-pill-title" data-i18n="cert.pendingLabel">CERTIFICADO</span>
-          <span class="cert-pill-sub" data-i18n="cert.pendingSub">(Por subir, a la espera de documentación INPRECASA)</span>
-        </div>
-        <div class="cert-pill">
-          <span class="cert-pill-icon" aria-hidden="true"></span>
-          <span class="cert-pill-title" data-i18n="cert.pendingLabel">CERTIFICADO</span>
-          <span class="cert-pill-sub" data-i18n="cert.pendingSub">(Por subir, a la espera de documentación INPRECASA)</span>
-        </div>
-        <div class="cert-pill">
-          <span class="cert-pill-icon" aria-hidden="true"></span>
-          <span class="cert-pill-title" data-i18n="cert.pendingLabel">CERTIFICADO</span>
-          <span class="cert-pill-sub" data-i18n="cert.pendingSub">(Por subir, a la espera de documentación INPRECASA)</span>
-        </div>
-        <div class="cert-pill">
-          <span class="cert-pill-icon" aria-hidden="true"></span>
-          <span class="cert-pill-title" data-i18n="cert.pendingLabel">CERTIFICADO</span>
-          <span class="cert-pill-sub" data-i18n="cert.pendingSub">(Por subir, a la espera de documentación INPRECASA)</span>
-        </div>
-        <div class="cert-pill">
-          <span class="cert-pill-icon" aria-hidden="true"></span>
-          <span class="cert-pill-title" data-i18n="cert.pendingLabel">CERTIFICADO</span>
-          <span class="cert-pill-sub" data-i18n="cert.pendingSub">(Por subir, a la espera de documentación INPRECASA)</span>
-        </div>
-        <!-- duplicate set for seamless marquee loop -->
-        <div class="cert-pill" aria-hidden="true">
-          <span class="cert-pill-icon" aria-hidden="true"></span>
-          <span class="cert-pill-title" data-i18n="cert.pendingLabel">CERTIFICADO</span>
-          <span class="cert-pill-sub" data-i18n="cert.pendingSub">(Por subir, a la espera de documentación INPRECASA)</span>
-        </div>
-        <div class="cert-pill" aria-hidden="true">
-          <span class="cert-pill-icon" aria-hidden="true"></span>
-          <span class="cert-pill-title" data-i18n="cert.pendingLabel">CERTIFICADO</span>
-          <span class="cert-pill-sub" data-i18n="cert.pendingSub">(Por subir, a la espera de documentación INPRECASA)</span>
-        </div>
-        <div class="cert-pill" aria-hidden="true">
-          <span class="cert-pill-icon" aria-hidden="true"></span>
-          <span class="cert-pill-title" data-i18n="cert.pendingLabel">CERTIFICADO</span>
-          <span class="cert-pill-sub" data-i18n="cert.pendingSub">(Por subir, a la espera de documentación INPRECASA)</span>
-        </div>
-        <div class="cert-pill" aria-hidden="true">
-          <span class="cert-pill-icon" aria-hidden="true"></span>
-          <span class="cert-pill-title" data-i18n="cert.pendingLabel">CERTIFICADO</span>
-          <span class="cert-pill-sub" data-i18n="cert.pendingSub">(Por subir, a la espera de documentación INPRECASA)</span>
-        </div>
-        <div class="cert-pill" aria-hidden="true">
-          <span class="cert-pill-icon" aria-hidden="true"></span>
-          <span class="cert-pill-title" data-i18n="cert.pendingLabel">CERTIFICADO</span>
-          <span class="cert-pill-sub" data-i18n="cert.pendingSub">(Por subir, a la espera de documentación INPRECASA)</span>
-        </div>
-        <div class="cert-pill" aria-hidden="true">
-          <span class="cert-pill-icon" aria-hidden="true"></span>
-          <span class="cert-pill-title" data-i18n="cert.pendingLabel">CERTIFICADO</span>
-          <span class="cert-pill-sub" data-i18n="cert.pendingSub">(Por subir, a la espera de documentación INPRECASA)</span>
-        </div>
+      <span class="kicker" data-i18n="comp.kicker">Compliance</span>
+      <h2 class="section-title" data-i18n="comp.title">Compliance and documentation</h2>
+      <p class="section-intro" data-i18n="comp.intro">Every intervention ends with technical documentation, issued where applicable, so your vessel is ready for survey and audit.</p>
+      <div class="comp-grid">
+        <article class="comp-card" data-reveal><span class="n">01</span><h3 data-i18n="comp.d1.t">Service documentation</h3><p data-i18n="comp.d1.d">Reports and certificates issued after each inspection, service or test.</p></article>
+        <article class="comp-card" data-reveal><span class="n">02</span><h3 data-i18n="comp.d2.t">Traceability</h3><p data-i18n="comp.d2.d">Equipment and intervention details are documented for every job.</p></article>
+        <article class="comp-card" data-reveal><span class="n">03</span><h3 data-i18n="comp.d3.t">Regulatory framework</h3><p data-i18n="comp.d3.d">Work carried out to the requirements applicable to each type of equipment.</p></article>
+        <article class="comp-card comp-dossier" data-reveal>
+          <span class="n">04</span><h3 data-i18n="comp.dossier.t" style="color:#fff">Approvals &amp; manufacturer authorisations</h3>
+          <p data-i18n="comp.dossier.d">Our current approvals and authorisations are provided on request.</p>
+          <a href="#contact" class="btn btn-primary btn-sm" data-service="approvals" data-i18n="comp.dossier.cta">Request our approvals</a>
+        </article>
       </div>
+      <!-- Approvals/logos are rendered here from APPROVALS in assets/js/main.js once documentation is supplied -->
+      <div class="approvals" id="approvals"></div>
     </div>
   </section>
 
-  <!-- ============ LOCATIONS ============ -->
-  <section class="locations" id="locations">
+  <!-- LOCATIONS -->
+  <section class="section section--tint" id="locations">
     <div class="section-inner">
-      <p class="section-kicker" data-i18n="loc.kicker">Locations</p>
-      <h2 class="section-title" data-i18n="loc.title">Two bases. One maritime standard.</h2>
-
-      <div class="location-grid">
-        <div class="location-card location-card--hq">
-          <span class="location-hq-tag" data-i18n="loc.hqTag">Headquarters</span>
-          <iframe class="location-map" loading="lazy" title="INPRECASA Tenerife — Google Maps"
-            src="https://maps.google.com/maps?q=28.4578823,-16.2939048&z=16&output=embed"></iframe>
-          <h3>Tenerife</h3>
-          <p class="location-address">C/ Fonseca, 10 · La Cuesta<br>38320, La Laguna</p>
-          <div class="location-links">
-            <a class="location-phone" href="tel:+34922650131">+34 922 650 131</a>
-            <a class="location-maplink" href="https://maps.app.goo.gl/CWao4BHAQv56eTre9" target="_blank" rel="noopener" data-i18n="loc.viewMap">View on Google Maps</a>
+      <span class="kicker" data-i18n="loc.kicker">Locations</span>
+      <h2 class="section-title" data-i18n="loc.title2">Two bases. One maritime standard.</h2>
+      <div class="loc-grid" style="margin-top:32px">
+        <article class="loc loc--hq" data-reveal>
+          <div class="loc-map" data-map="https://maps.google.com/maps?q=28.4578823,-16.2939048&z=16&output=embed" data-title="INPRECASA Tenerife">
+            <span class="loc-tag" data-i18n="loc.hqTag">Headquarters</span>
+            <button type="button" class="loc-map-load"><svg><use href="#i-pin"/></svg><strong data-i18n="loc.loadMap">Show map</strong><small data-i18n="loc.mapNote">Loads Google Maps</small></button>
           </div>
-          <a href="#contact" class="btn btn-primary btn-small location-cta" data-i18n="loc.cta">Request service here</a>
-        </div>
-        <div class="location-card">
-          <iframe class="location-map" loading="lazy" title="INPRECASA Las Palmas — Google Maps"
-            src="https://maps.google.com/maps?q=28.1568198,-15.416858&z=16&output=embed"></iframe>
-          <h3>Las Palmas</h3>
-          <p class="location-address">C/ Sucre, 22 Izq · El Sebadal<br>35008, Las Palmas de Gran Canaria</p>
-          <div class="location-links">
-            <a class="location-phone" href="tel:+34928469422">+34 928 469 422</a>
-            <a class="location-maplink" href="https://maps.app.goo.gl/cDyuvVipdw3igh386" target="_blank" rel="noopener" data-i18n="loc.viewMap">View on Google Maps</a>
+          <div class="loc-body">
+            <h3>Tenerife</h3>
+            <p class="loc-addr">C/ Fonseca, 10 · La Cuesta<br>38320 La Laguna</p>
+            <a class="loc-phone" href="tel:+34922650131">+34 922 650 131</a>
+            <div class="loc-btns">
+              <a class="btn btn-primary btn-sm" href="tel:+34922650131" data-i18n="loc.callBtn">Call</a>
+              <a class="btn btn-outline btn-sm" href="https://maps.app.goo.gl/CWao4BHAQv56eTre9" target="_blank" rel="noopener" data-i18n="loc.directions">Directions</a>
+            </div>
           </div>
-          <a href="#contact" class="btn btn-outline btn-small location-cta" data-i18n="loc.cta">Request service here</a>
-        </div>
+        </article>
+        <article class="loc" data-reveal>
+          <div class="loc-map" data-map="https://maps.google.com/maps?q=28.1568198,-15.416858&z=16&output=embed" data-title="INPRECASA Las Palmas">
+            <button type="button" class="loc-map-load"><svg><use href="#i-pin"/></svg><strong data-i18n="loc.loadMap">Show map</strong><small data-i18n="loc.mapNote">Loads Google Maps</small></button>
+          </div>
+          <div class="loc-body">
+            <h3>Las Palmas</h3>
+            <p class="loc-addr">C/ Sucre, 22 Izq · El Sebadal<br>35008 Las Palmas de Gran Canaria</p>
+            <a class="loc-phone" href="tel:+34928469422">+34 928 469 422</a>
+            <div class="loc-btns">
+              <a class="btn btn-primary btn-sm" href="tel:+34928469422" data-i18n="loc.callBtn">Call</a>
+              <a class="btn btn-outline btn-sm" href="https://maps.app.goo.gl/cDyuvVipdw3igh386" target="_blank" rel="noopener" data-i18n="loc.directions">Directions</a>
+            </div>
+          </div>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- ============ FINAL CTA ============ -->
-  <section class="final-cta">
-    <div class="final-cta-media" aria-hidden="true">
-      <!-- Stand-in vessel photograph: a verified, freely-licensed photo of an actual
-           Fred. Olsen Express ship could not be sourced with a usable direct link.
-           This is a generic fast-ferry/vessel photo — swap for a real INPRECASA or
-           licensed Fred. Olsen photograph when available. -->
-      <img src="https://images.unsplash.com/photo-1602194146204-5830e1aafa1e?auto=format&fit=crop&w=2000&q=80" alt="" loading="lazy">
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="section-inner faq-wrap">
+      <div>
+        <span class="kicker" data-i18n="faq.kicker">FAQ</span>
+        <h2 class="section-title" data-i18n="faq.title">Frequently asked questions</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq"><summary data-i18n="faq.q1">How often do liferafts need servicing?</summary><p data-i18n="faq.a1">As a general rule, SOLAS liferafts must be serviced at intervals not exceeding 12 months, and always according to the manufacturer's instructions and the vessel's flag requirements. We can review your equipment's due dates.</p></details>
+        <details class="faq"><summary data-i18n="faq.q2">Do you work on board or in your workshop?</summary><p data-i18n="faq.a2">Both. Inspections can be carried out on board or in our workshops in Tenerife and Las Palmas, depending on the equipment and the scope of work.</p></details>
+        <details class="faq"><summary data-i18n="faq.q3">What information do you need for a quote?</summary><p data-i18n="faq.a3">Vessel name and IMO number (if applicable), the service or equipment involved, the port and your preferred dates. Any previous service reports help us scope the work faster.</p></details>
+      </div>
     </div>
-    <div class="section-inner final-cta-inner">
+  </section>
+
+  <!-- CTA BAND -->
+  <section class="cta-band">
+    <img src="assets/img/liferafts.webp" alt="" width="1090" height="826" loading="lazy" decoding="async" aria-hidden="true">
+    <div class="section-inner cta-inner" data-reveal>
       <h2 data-i18n-html="finalcta.title">Your vessel.<br>Our responsibility.</h2>
       <p data-i18n="finalcta.sub">Technical maritime safety services built around reliability, compliance and operational readiness.</p>
       <a href="#contact" class="btn btn-primary" data-i18n="finalcta.cta">Request a service</a>
     </div>
   </section>
 
-  <!-- ============ CONTACT ============ -->
-  <section class="contact" id="contact">
+  <!-- CONTACT -->
+  <section class="section section--tint" id="contact">
     <div class="section-inner contact-grid">
-      <div class="contact-intro">
-        <p class="section-kicker" data-i18n="contact.kicker">Contact</p>
-        <h2 class="section-title" data-i18n="contact.title">Request a service</h2>
-        <p class="section-intro" data-i18n="contact.intro">Tell us about your vessel and the service required. Our technical team will confirm scope and scheduling.</p>
+      <div>
+        <span class="kicker" data-i18n="contact.kicker">Contact</span>
+        <h2 class="section-title" data-i18n="contact.title2">Request a service</h2>
+        <p class="section-intro" style="margin-bottom:20px" data-i18n="contact.intro2">Tell us about your vessel and the service required. Our technical team will confirm scope and scheduling.</p>
         <div class="contact-direct">
-          <p><strong data-i18n="contact.emailLabel">Email</strong><br><a href="mailto:inprecasa@inprecasa.com">inprecasa@inprecasa.com</a></p>
-          <p><strong>Tenerife (HQ)</strong><br><a href="tel:+34922650131">+34 922 650 131</a></p>
-          <p><strong>Las Palmas</strong><br><a href="tel:+34928469422">+34 928 469 422</a></p>
+          <a class="cd" href="mailto:inprecasa@inprecasa.com"><svg><use href="#i-mail"/></svg><div><small data-i18n="contact.emailLabel">Email</small><span>inprecasa@inprecasa.com</span></div></a>
+          <a class="cd" href="tel:+34922650131"><svg><use href="#i-phone"/></svg><div><small data-i18n="util.hq">Tenerife (HQ)</small><span>+34 922 650 131</span></div></a>
+          <a class="cd" href="tel:+34928469422"><svg><use href="#i-phone"/></svg><div><small data-i18n="util.lp">Las Palmas</small><span>+34 928 469 422</span></div></a>
         </div>
       </div>
 
-      <form class="contact-form" id="contact-form">
+      <form class="form" id="contact-form" novalidate>
         <div class="form-row">
-          <label>
-            <span data-i18n="form.company">Company</span>
-            <input type="text" name="company" required>
-          </label>
-          <label>
-            <span data-i18n="form.name">Contact name</span>
-            <input type="text" name="name" required>
-          </label>
+          <label class="field"><span><span data-i18n="form.company">Company</span> <span class="req">*</span></span><input type="text" name="company" autocomplete="organization" required><span class="field-err" aria-live="polite"></span></label>
+          <label class="field"><span><span data-i18n="form.name">Contact name</span> <span class="req">*</span></span><input type="text" name="name" autocomplete="name" required><span class="field-err" aria-live="polite"></span></label>
         </div>
         <div class="form-row">
-          <label>
-            <span data-i18n="form.email">Email</span>
-            <input type="email" name="email" required>
-          </label>
-          <label>
-            <span data-i18n="form.phone">Phone</span>
-            <input type="tel" name="phone">
-          </label>
+          <label class="field"><span><span data-i18n="form.email">Email</span> <span class="req">*</span></span><input type="email" name="email" autocomplete="email" inputmode="email" required><span class="field-err" aria-live="polite"></span></label>
+          <label class="field"><span data-i18n="form.phone">Phone</span><input type="tel" name="phone" autocomplete="tel" inputmode="tel"></label>
         </div>
         <div class="form-row">
-          <label>
-            <span data-i18n="form.vessel">Vessel name</span>
-            <input type="text" name="vessel">
-          </label>
-          <label>
-            <span data-i18n="form.imo">IMO number</span>
-            <input type="text" name="imo" inputmode="numeric" pattern="[0-9]*">
-          </label>
+          <label class="field"><span data-i18n="form.vessel">Vessel name</span><input type="text" name="vessel"></label>
+          <label class="field"><span data-i18n="form.imo">IMO number</span><input type="text" name="imo" inputmode="numeric" maxlength="7" autocomplete="off"><span class="field-err" aria-live="polite"></span></label>
         </div>
         <div class="form-row">
-          <label>
-            <span data-i18n="form.service">Service required</span>
-            <select name="service">
+          <label class="field"><span data-i18n="form.service">Service required</span>
+            <select name="service" id="f-service">
               <option value="" data-i18n="form.serviceSelect">Select a service</option>
-              <option data-i18n="services.lsa.name">Life-saving appliances</option>
-              <option data-i18n="services.fire.name">Fire safety</option>
-              <option data-i18n="services.ppe.name">Personal protection</option>
-              <option data-i18n="services.testing.name">Testing &amp; calibration</option>
-              <option data-i18n="form.serviceOther">Other / not sure</option>
             </select>
           </label>
-          <label>
-            <span data-i18n="form.location">Location</span>
+          <label class="field"><span data-i18n="form.location">Location</span>
             <select name="location">
               <option value="" data-i18n="form.locationSelect">Select a base</option>
-              <option>Tenerife</option>
-              <option>Las Palmas</option>
-              <option data-i18n="form.locationOther">Other</option>
+              <option value="Tenerife">Tenerife</option>
+              <option value="Las Palmas">Las Palmas</option>
+              <option value="Other" data-i18n="form.locationOther">Other</option>
             </select>
           </label>
         </div>
-        <div class="form-row">
-          <label>
-            <span data-i18n="form.date">Preferred date</span>
-            <input type="date" name="date">
-          </label>
-          <label class="file-label">
-            <span data-i18n="form.document">Document upload</span>
-            <input type="file" name="document">
-          </label>
-        </div>
-        <label class="full-width">
-          <span data-i18n="form.message">Message</span>
-          <textarea name="message" rows="4"></textarea>
-        </label>
-        <button type="submit" class="btn btn-primary" data-i18n="form.submit">Send request</button>
-        <p class="form-status" id="form-status" role="status"></p>
+        <label class="field"><span data-i18n="form.date">Preferred date</span><input type="date" name="date"></label>
+        <label class="field"><span data-i18n="form.message">Message</span><textarea name="message" rows="4"></textarea></label>
+        <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <label class="check"><input type="checkbox" name="privacy" required><span><span data-i18n="form.privacy">I accept the processing of my data to handle this request (see Legal notice &amp; privacy).</span> <a href="legal.html" target="_blank" rel="noopener">→</a></span></label>
+        <span class="field-err" id="privacy-err"></span>
+        <button type="submit" class="btn btn-primary btn-block" id="f-submit"><span data-i18n="form.submit">Send request</span><svg><use href="#i-arrow"/></svg></button>
+        <p class="form-note" id="form-note" data-i18n="form.mailto">Your email app will open with the request pre-filled. Attach any documents there.</p>
+        <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
       </form>
     </div>
   </section>
-
 </main>
 
-<!-- ============ FOOTER ============ -->
 <footer class="site-footer">
   <div class="section-inner footer-grid">
-    <div class="footer-col">
-      <p class="footer-brand">INPRECASA</p>
-      <p class="footer-tagline" data-i18n="footer.tagline">Maritime Safety &amp; Fire Protection</p>
+    <div class="footer-col footer-brand">
+      <img src="assets/img/inprecasa-logo-white.svg" alt="INPRECASA" width="144" height="43" loading="lazy">
+      <p class="footer-tagline" data-i18n="footer.tagline2">Maritime safety &amp; fire protection — Canary Islands</p>
     </div>
     <div class="footer-col">
-      <h4 data-i18n="footer.siteHeading">Site</h4>
-      <a href="#home" data-i18n="nav.home">Home</a>
+      <h4 data-i18n="footer.company">Company</h4>
       <a href="#about" data-i18n="nav.about">About</a>
-      <a href="#services" data-i18n="nav.services">Services</a>
-      <a href="#certifications" data-i18n="nav.certifications">Certifications</a>
+      <a href="#sectors" data-i18n="nav.sectors">Who we serve</a>
+      <a href="#compliance" data-i18n="nav.compliance">Compliance</a>
       <a href="#locations" data-i18n="nav.locations">Locations</a>
+      <a href="#faq">FAQ</a>
       <a href="#contact" data-i18n="nav.contact">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4 data-i18n="footer.contactHeading">Contact</h4>
+      <a href="tel:+34922650131">+34 922 650 131 <span style="color:var(--steel-light)">· Tenerife</span></a>
+      <a href="tel:+34928469422">+34 928 469 422 <span style="color:var(--steel-light)">· Las Palmas</span></a>
+      <a href="mailto:inprecasa@inprecasa.com">inprecasa@inprecasa.com</a>
     </div>
     <div class="footer-col">
       <h4 data-i18n="footer.langHeading">Languages</h4>
       <a href="#" class="footer-lang" data-lang="en">English</a>
       <a href="#" class="footer-lang" data-lang="es">Español</a>
-      <a href="#" class="footer-lang" data-lang="fr">Français</a>
       <a href="#" class="footer-lang" data-lang="de">Deutsch</a>
+      <a href="#" class="footer-lang" data-lang="fr">Français</a>
       <a href="#" class="footer-lang" data-lang="it">Italiano</a>
     </div>
     <div class="footer-col">
-      <h4 data-i18n="footer.contactHeading">Contact</h4>
-      <a href="tel:+34922650131">+34 922 650 131 (HQ)</a>
-      <a href="tel:+34928469422">+34 928 469 422</a>
-      <a href="mailto:inprecasa@inprecasa.com">inprecasa@inprecasa.com</a>
-    </div>
-    <div class="footer-col">
       <h4 data-i18n="footer.legalHeading">Legal</h4>
-      <a href="#" data-i18n="footer.privacy">Privacy Policy</a>
-      <a href="#" data-i18n="footer.cookies">Cookies</a>
-      <a href="#" data-i18n="footer.legal">Legal Notice</a>
+      <a href="legal.html" data-i18n="footer.privacy">Legal notice &amp; privacy</a>
+      <a href="legal.html#cookies" data-i18n="footer.cookies">Cookies</a>
+      <h4 style="margin-top:18px" data-i18n="footer.funding">Funding</h4>
+      <a href="https://inprecasa.com/wp-content/uploads/WEB_CH.pdf" target="_blank" rel="noopener">PDF 1</a>
+      <a href="https://inprecasa.com/wp-content/uploads/WEB_12.pdf" target="_blank" rel="noopener">PDF 2</a>
+      <a href="https://inprecasa.com/wp-content/uploads/WEB_F10.pdf" target="_blank" rel="noopener">PDF 3</a>
     </div>
   </div>
-  <div class="footer-bottom section-inner">
-    <p><span data-i18n-html="footer.rights">© <span id="year"></span> Industria de Prevención Canaria, S.L. — INPRECASA</span></p>
+  <div class="section-inner footer-bottom">
+    <p>© <span id="year">2026</span> Industria de Prevención Canaria, S.L. — INPRECASA</p>
+    <p>Your safety at sea</p>
   </div>
 </footer>
 
-<!-- ============ FLOATING ACTIONS ============ -->
-<div class="mobile-action-bar" role="navigation" aria-label="Quick actions">
-  <a href="#contact" class="mobile-action mobile-action--primary" data-i18n="floating.request">Request service</a>
-  <a href="tel:+34928469422" class="mobile-action mobile-action--call" data-i18n="floating.call">Call</a>
+<!-- Mobile action bar + call sheet -->
+<div class="m-bar" id="m-bar" role="navigation" aria-label="Quick actions">
+  <button type="button" id="m-call"><svg><use href="#i-phone"/></svg><span data-i18n="floating.call">Call</span></button>
+  <a href="#contact" class="m-primary"><span data-i18n="floating.request">Request service</span><svg><use href="#i-arrow"/></svg></a>
 </div>
-<script>
-(function () {
-  "use strict";
+<div class="sheet-backdrop" id="sheet-backdrop"></div>
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title" aria-hidden="true">
+  <div class="sheet-grab"></div>
+  <h2 id="sheet-title" data-i18n="sheet.title">Call a base</h2>
+  <div class="hc-list">
+    <a class="hc-line" href="tel:+34922650131"><span><small data-i18n="util.hq">Tenerife (HQ)</small><strong>+34 922 650 131</strong></span><svg class="ic"><use href="#i-phone"/></svg></a>
+    <a class="hc-line" href="tel:+34928469422"><span><small data-i18n="util.lp">Las Palmas</small><strong>+34 928 469 422</strong></span><svg class="ic"><use href="#i-phone"/></svg></a>
+  </div>
+  <button type="button" class="btn btn-outline btn-block" id="sheet-close" data-i18n="sheet.close">Close</button>
+</div>
 
-  /* ========================================================================
-     Translations
-     ======================================================================== */
-  var translations = {
-    en: {
-      "a11y.skip": "Skip to content",
-      "nav.home": "Home", "nav.about": "About", "nav.services": "Services",
-      "nav.certifications": "Certifications", "nav.locations": "Locations", "nav.contact": "Contact",
-      "nav.requestService": "Request service",
-      "hero.eyebrow": "Industria de Prevención Canaria, S.L. — Tenerife · Las Palmas",
-      "hero.headline": "Maritime safety.<br>Engineered for the sea.",
-      "hero.sub": "Specialized maritime safety, life-saving and fire protection services for the maritime industry across the Canary Islands.",
-      "hero.ctaPrimary": "Request a service", "hero.ctaSecondary": "Explore services",
-      "proof.years": "Years of maritime safety experience",
-      "proof.locations": "Locations — Tenerife + Gran Canaria",
-      "proof.iso": "Quality management system", "proof.verify": "[details pending confirmation]",
-      "proof.services": "Core service lines",
-      "proof.network": "Canary Islands maritime service network",
-      "about.kicker": "About INPRECASA", "about.title": "Maritime safety is our business.",
-      "about.lead": "INPRECASA is the commercial brand of Industria de Prevención Canaria, S.L., a family-owned company based in the Canary Islands.",
-      "about.p1": "For more than three decades we have provided maritime safety and fire protection services to vessel operators, shipping companies and technical departments across the archipelago.",
-      "about.p2": "We operate from two bases — our headquarters in Tenerife and a second base in Las Palmas de Gran Canaria — combining technical expertise, inspection, maintenance, testing and safety equipment servicing under a single provider.",
-      "services.kicker": "Services", "services.title": "Four areas of technical coverage",
-      "services.labelWhat": "What we do", "services.labelEquipment": "Equipment",
-      "services.labelCompliance": "Compliance", "services.labelWho": "Who we serve",
-      "services.verifyNote": "[Applicable standards and approvals to be confirmed with INPRECASA]",
-      "services.whoVerify": "[Sectors served to be confirmed]",
-      "services.cta": "Request this service",
-      "services.lsa.name": "Life-saving appliances",
-      "services.lsa.what": "Inspection, servicing and certification of liferafts and lifeboats, including launching and recovery systems, so equipment is ready to perform in an emergency.",
-      "services.lsa.eq1": "Liferafts", "services.lsa.eq2": "Lifeboats",
-      "services.lsa.eq3": "Marine evacuation systems", "services.lsa.eq4": "Launching & recovery systems",
-      "services.fire.name": "Fire safety",
-      "services.fire.what": "Installation, maintenance and testing of fire detection, suppression and prevention systems, protecting vessels and equipment against fire risk.",
-      "services.fire.eq1": "Fire detection systems", "services.fire.eq2": "Fire suppression systems", "services.fire.eq3": "Fire prevention equipment",
-      "services.ppe.name": "Personal protection",
-      "services.ppe.what": "Supply and maintenance of personal protective and rescue equipment for crew, ensuring readiness for emergency and routine operations.",
-      "services.ppe.eq1": "Immersion suits", "services.ppe.eq2": "Life jackets", "services.ppe.eq3": "Breathing apparatus", "services.ppe.eq4": "Marine PPE",
-      "services.testing.name": "Testing & calibration",
-      "services.testing.what": "Load testing, calibration and instrument verification, confirming equipment performs to its rated capacity and measurement accuracy.",
-      "services.testing.eq1": "Crane load tests", "services.testing.eq2": "Bollard pull tests", "services.testing.eq3": "Gas detector verification", "services.testing.eq4": "Calibration services",
-      "services.gas.name": "Gas & pressure systems",
-      "services.gas.what": "Inspection, maintenance and testing of pressure gas cylinders, compressed air and breathing air systems used across vessel safety operations.",
-      "services.gas.verifyLine": "[Scope of this service line to be confirmed with INPRECASA]",
-      "services.gas.eq1": "Pressure gas cylinders", "services.gas.eq2": "Compressed air systems", "services.gas.eq3": "Breathing air systems",
-      "facilities.kicker": "Facilities", "facilities.title": "Built for maritime operations",
-      "facilities.intro": "Workshop facilities in Tenerife and Las Palmas support inspection, servicing and testing work across the archipelago.",
-      "facilities.cap1": "Port & vessel environment",
-      "facilities.cap2": "Workshop & servicing",
-      "facilities.cap3": "Testing & calibration",
-      "facilities.cap4": "Fire safety equipment",
-      "process.kicker": "How we work", "process.title": "From inspection to ready",
-      "process.s1.title": "Inspect", "process.s1.desc": "Technical inspection of equipment and systems on board or in our workshop.",
-      "process.s2.title": "Service", "process.s2.desc": "Maintenance and servicing carried out according to applicable requirements.",
-      "process.s3.title": "Test", "process.s3.desc": "Testing and verification confirm the equipment performs as required.",
-      "process.s4.title": "Document", "process.s4.desc": "Technical documentation and certification is issued where applicable.",
-      "process.s5.title": "Ready", "process.s5.desc": "Equipment is returned to the vessel, ready for operational use.",
-      "cert.kicker": "Certifications", "cert.title": "Certifications & approvals",
-      "cert.intro": "This section is reserved for INPRECASA's certifications, approvals and manufacturer authorisations once the supporting documentation is provided.",
-      "cert.pendingLabel": "CERTIFICATE", "cert.pendingSub": "(Pending upload, awaiting INPRECASA documentation)",
-      "cert.iso.name": "Quality Management System",
-      "cert.pending1": "[Maritime authorisation to be confirmed]",
-      "cert.pending2": "[Fire protection authorisation to be confirmed]",
-      "cert.pending3": "[Manufacturer approval to be confirmed]",
-      "cert.footnote": "Further certifications, class authorisations and manufacturer approvals are confirmed directly with INPRECASA and provided on request.",
-      "floating.request": "Request service", "floating.call": "Call",
-      "loc.kicker": "Locations", "loc.title": "Two bases. One maritime standard.",
-      "loc.panel": "Service base", "loc.cta": "Request service here",
-      "loc.hqTag": "Headquarters", "loc.viewMap": "View on Google Maps",
-      "finalcta.title": "Your vessel.<br>Our responsibility.",
-      "finalcta.sub": "Technical maritime safety services built around reliability, compliance and operational readiness.",
-      "finalcta.cta": "Request a service",
-      "contact.kicker": "Contact", "contact.title": "Request a service",
-      "contact.intro": "Tell us about your vessel and the service required. Our technical team will confirm scope and scheduling.",
-      "contact.emailLabel": "Email",
-      "form.company": "Company", "form.name": "Contact name", "form.email": "Email", "form.phone": "Phone",
-      "form.vessel": "Vessel name", "form.imo": "IMO number", "form.service": "Service required",
-      "form.serviceSelect": "Select a service", "form.serviceOther": "Other / not sure",
-      "form.location": "Location", "form.locationSelect": "Select a base", "form.locationOther": "Other",
-      "form.date": "Preferred date", "form.document": "Document upload", "form.message": "Message",
-      "form.submit": "Send request",
-      "form.statusMsg": "This is a design prototype — form submission is not yet connected to a backend.",
-      "footer.tagline": "Maritime Safety & Fire Protection", "footer.siteHeading": "Site",
-      "footer.langHeading": "Languages", "footer.contactHeading": "Contact", "footer.legalHeading": "Legal",
-      "footer.privacy": "Privacy Policy", "footer.cookies": "Cookies", "footer.legal": "Legal Notice",
-      "footer.rights": "© <span id=\"year\"></span> Industria de Prevención Canaria, S.L. — INPRECASA"
-    },
-    es: {
-      "a11y.skip": "Ir al contenido",
-      "nav.home": "Inicio", "nav.about": "Empresa", "nav.services": "Servicios",
-      "nav.certifications": "Certificaciones", "nav.locations": "Ubicaciones", "nav.contact": "Contacto",
-      "nav.requestService": "Solicitar servicio",
-      "hero.eyebrow": "Industria de Prevención Canaria, S.L. — Tenerife · Las Palmas",
-      "hero.headline": "Seguridad marítima.<br>Diseñada para el mar.",
-      "hero.sub": "Servicios especializados de seguridad marítima, salvamento y protección contra incendios para la industria marítima en Canarias.",
-      "hero.ctaPrimary": "Solicitar un servicio", "hero.ctaSecondary": "Ver servicios",
-      "proof.years": "Años de experiencia en seguridad marítima",
-      "proof.locations": "Sedes — Tenerife + Gran Canaria",
-      "proof.iso": "Sistema de gestión de calidad", "proof.verify": "[datos pendientes de confirmación]",
-      "proof.services": "Líneas de servicio",
-      "proof.network": "Red de servicios marítimos en Canarias",
-      "about.kicker": "Sobre INPRECASA", "about.title": "La seguridad marítima es nuestro negocio.",
-      "about.lead": "INPRECASA es la marca comercial de Industria de Prevención Canaria, S.L., empresa familiar con sede en Canarias.",
-      "about.p1": "Desde hace más de tres décadas prestamos servicios de seguridad marítima y protección contra incendios a operadores de buques, navieras y departamentos técnicos de todo el archipiélago.",
-      "about.p2": "Operamos desde dos sedes: nuestra central en Tenerife y una segunda base en Las Palmas de Gran Canaria, combinando experiencia técnica, inspección, mantenimiento, pruebas y mantenimiento de equipos de seguridad bajo un único proveedor.",
-      "services.kicker": "Servicios", "services.title": "Cuatro áreas de cobertura técnica",
-      "services.labelWhat": "Qué hacemos", "services.labelEquipment": "Equipos",
-      "services.labelCompliance": "Normativa", "services.labelWho": "A quién servimos",
-      "services.verifyNote": "[Normas y homologaciones aplicables pendientes de confirmar con INPRECASA]",
-      "services.whoVerify": "[Sectores atendidos pendientes de confirmar]",
-      "services.cta": "Solicitar este servicio",
-      "services.lsa.name": "Equipos de salvamento",
-      "services.lsa.what": "Inspección, mantenimiento y certificación de balsas y botes salvavidas, incluidos los sistemas de puesta a flote y recuperación, para que el equipo esté listo en caso de emergencia.",
-      "services.lsa.eq1": "Balsas salvavidas", "services.lsa.eq2": "Botes salvavidas",
-      "services.lsa.eq3": "Sistemas de evacuación marítima", "services.lsa.eq4": "Sistemas de puesta a flote y recuperación",
-      "services.fire.name": "Protección contra incendios",
-      "services.fire.what": "Instalación, mantenimiento y pruebas de sistemas de detección, extinción y prevención de incendios, protegiendo buques y equipos frente al riesgo de fuego.",
-      "services.fire.eq1": "Sistemas de detección de incendios", "services.fire.eq2": "Sistemas de extinción de incendios", "services.fire.eq3": "Equipos de prevención de incendios",
-      "services.ppe.name": "Protección personal",
-      "services.ppe.what": "Suministro y mantenimiento de equipos de protección personal y rescate para la tripulación, garantizando su disponibilidad en operaciones de emergencia y rutinarias.",
-      "services.ppe.eq1": "Trajes de inmersión", "services.ppe.eq2": "Chalecos salvavidas", "services.ppe.eq3": "Equipos de respiración autónoma", "services.ppe.eq4": "EPI marítimo",
-      "services.testing.name": "Pruebas y calibración",
-      "services.testing.what": "Pruebas de carga, calibración y verificación de instrumentos, confirmando que el equipo rinde según su capacidad nominal y precisión de medida.",
-      "services.testing.eq1": "Pruebas de carga de grúas", "services.testing.eq2": "Pruebas de tiro a punto fijo", "services.testing.eq3": "Verificación de detectores de gas", "services.testing.eq4": "Servicios de calibración",
-      "services.gas.name": "Sistemas de gas y presión",
-      "services.gas.what": "Inspección, mantenimiento y pruebas de botellas de gas a presión, sistemas de aire comprimido y aire respirable utilizados en las operaciones de seguridad del buque.",
-      "services.gas.verifyLine": "[Alcance de esta línea de servicio pendiente de confirmar con INPRECASA]",
-      "services.gas.eq1": "Botellas de gas a presión", "services.gas.eq2": "Sistemas de aire comprimido", "services.gas.eq3": "Sistemas de aire respirable",
-      "facilities.kicker": "Instalaciones", "facilities.title": "Preparados para la operativa marítima",
-      "facilities.intro": "Los talleres de Tenerife y Las Palmas dan soporte a los trabajos de inspección, mantenimiento y pruebas en todo el archipiélago.",
-      "facilities.cap1": "Entorno portuario y de buques",
-      "facilities.cap2": "Taller y mantenimiento",
-      "facilities.cap3": "Pruebas y calibración",
-      "facilities.cap4": "Equipos contra incendios",
-      "process.kicker": "Cómo trabajamos", "process.title": "De la inspección a la puesta a punto",
-      "process.s1.title": "Inspeccionar", "process.s1.desc": "Inspección técnica del equipo y los sistemas, a bordo o en nuestro taller.",
-      "process.s2.title": "Mantener", "process.s2.desc": "Mantenimiento y reparación conforme a los requisitos aplicables.",
-      "process.s3.title": "Probar", "process.s3.desc": "Las pruebas y verificaciones confirman que el equipo rinde según lo exigido.",
-      "process.s4.title": "Documentar", "process.s4.desc": "Se emite la documentación técnica y certificación cuando corresponde.",
-      "process.s5.title": "Listo", "process.s5.desc": "El equipo se devuelve al buque, listo para su uso operativo.",
-      "cert.kicker": "Certificaciones", "cert.title": "Certificaciones y homologaciones",
-      "cert.intro": "Este apartado queda reservado para las certificaciones, homologaciones y autorizaciones de fabricante de INPRECASA en cuanto se aporte la documentación correspondiente.",
-      "cert.pendingLabel": "CERTIFICADO", "cert.pendingSub": "(Por subir, a la espera de documentación INPRECASA)",
-      "cert.iso.name": "Sistema de Gestión de Calidad",
-      "cert.pending1": "[Homologación marítima pendiente de confirmar]",
-      "cert.pending2": "[Homologación de protección contra incendios pendiente de confirmar]",
-      "cert.pending3": "[Homologación de fabricante pendiente de confirmar]",
-      "cert.footnote": "El resto de certificaciones, homologaciones de sociedad de clasificación y autorizaciones de fabricante se confirman directamente con INPRECASA y se facilitan bajo petición.",
-      "floating.request": "Solicitar servicio", "floating.call": "Llamar",
-      "loc.kicker": "Ubicaciones", "loc.title": "Dos sedes. Un mismo estándar marítimo.",
-      "loc.hqTag": "Sede central", "loc.viewMap": "Ver en Google Maps",
-      "loc.panel": "Sede de servicio", "loc.cta": "Solicitar servicio aquí",
-      "finalcta.title": "Su buque.<br>Nuestra responsabilidad.",
-      "finalcta.sub": "Servicios técnicos de seguridad marítima orientados a la fiabilidad, el cumplimiento normativo y la disponibilidad operativa.",
-      "finalcta.cta": "Solicitar un servicio",
-      "contact.kicker": "Contacto", "contact.title": "Solicitar un servicio",
-      "contact.intro": "Cuéntenos sobre su buque y el servicio que necesita. Nuestro equipo técnico confirmará el alcance y la fecha.",
-      "contact.emailLabel": "Correo electrónico",
-      "form.company": "Empresa", "form.name": "Persona de contacto", "form.email": "Correo electrónico", "form.phone": "Teléfono",
-      "form.vessel": "Nombre del buque", "form.imo": "Número IMO", "form.service": "Servicio solicitado",
-      "form.serviceSelect": "Seleccione un servicio", "form.serviceOther": "Otro / no estoy seguro",
-      "form.location": "Sede", "form.locationSelect": "Seleccione una sede", "form.locationOther": "Otra",
-      "form.date": "Fecha preferida", "form.document": "Adjuntar documento", "form.message": "Mensaje",
-      "form.submit": "Enviar solicitud",
-      "form.statusMsg": "Este es un prototipo de diseño: el envío del formulario aún no está conectado a un servidor.",
-      "footer.tagline": "Seguridad Marítima y Protección Contra Incendios", "footer.siteHeading": "Sitio",
-      "footer.langHeading": "Idiomas", "footer.contactHeading": "Contacto", "footer.legalHeading": "Legal",
-      "footer.privacy": "Política de privacidad", "footer.cookies": "Cookies", "footer.legal": "Aviso legal",
-      "footer.rights": "© <span id=\"year\"></span> Industria de Prevención Canaria, S.L. — INPRECASA"
-    },
-    de: {
-      "a11y.skip": "Zum Inhalt springen",
-      "nav.home": "Start", "nav.about": "Unternehmen", "nav.services": "Leistungen",
-      "nav.certifications": "Zertifizierungen", "nav.locations": "Standorte", "nav.contact": "Kontakt",
-      "nav.requestService": "Service anfragen",
-      "hero.eyebrow": "Industria de Prevención Canaria, S.L. — Teneriffa · Las Palmas",
-      "hero.headline": "Maritime Sicherheit.<br>Für die See konstruiert.",
-      "hero.sub": "Spezialisierte Dienstleistungen für maritime Sicherheit, Rettungsmittel und Brandschutz für die Schifffahrtsindustrie auf den Kanarischen Inseln.",
-      "hero.ctaPrimary": "Service anfragen", "hero.ctaSecondary": "Leistungen ansehen",
-      "proof.years": "Jahre Erfahrung in der maritimen Sicherheit",
-      "proof.locations": "Standorte — Teneriffa + Gran Canaria",
-      "proof.iso": "Qualitätsmanagementsystem", "proof.verify": "[Angaben werden noch bestätigt]",
-      "proof.services": "Leistungsbereiche",
-      "proof.network": "Maritimes Servicenetz auf den Kanaren",
-      "about.kicker": "Über INPRECASA", "about.title": "Maritime Sicherheit ist unser Geschäft.",
-      "about.lead": "INPRECASA ist die Handelsmarke von Industria de Prevención Canaria, S.L., einem familiengeführten Unternehmen mit Sitz auf den Kanarischen Inseln.",
-      "about.p1": "Seit mehr als drei Jahrzehnten bieten wir Reedereien, Schiffsbetreibern und technischen Abteilungen im gesamten Archipel Dienstleistungen für maritime Sicherheit und Brandschutz.",
-      "about.p2": "Wir sind an zwei Standorten tätig — unserem Hauptsitz auf Teneriffa und einem zweiten Standort in Las Palmas de Gran Canaria — und bündeln technisches Fachwissen, Inspektion, Wartung, Prüfung und Instandhaltung von Sicherheitsausrüstung bei einem einzigen Anbieter.",
-      "services.kicker": "Leistungen", "services.title": "Vier Bereiche technischer Kompetenz",
-      "services.labelWhat": "Was wir leisten", "services.labelEquipment": "Ausrüstung",
-      "services.labelCompliance": "Normen", "services.labelWho": "Für wen",
-      "services.verifyNote": "[Geltende Normen und Zulassungen werden mit INPRECASA noch bestätigt]",
-      "services.whoVerify": "[Bediente Branchen werden noch bestätigt]",
-      "services.cta": "Diesen Service anfragen",
-      "services.lsa.name": "Rettungsmittel",
-      "services.lsa.what": "Inspektion, Wartung und Zertifizierung von Rettungsflößen und Rettungsbooten, einschließlich Aussetz- und Bergungssystemen, damit die Ausrüstung im Notfall einsatzbereit ist.",
-      "services.lsa.eq1": "Rettungsflöße", "services.lsa.eq2": "Rettungsboote",
-      "services.lsa.eq3": "Seenotrettungssysteme", "services.lsa.eq4": "Aussetz- und Bergungssysteme",
-      "services.fire.name": "Brandschutz",
-      "services.fire.what": "Installation, Wartung und Prüfung von Brandmelde-, Löschund Präventionssystemen zum Schutz von Schiffen und Ausrüstung vor Brandrisiken.",
-      "services.fire.eq1": "Brandmeldesysteme", "services.fire.eq2": "Löschsysteme", "services.fire.eq3": "Brandschutzausrüstung",
-      "services.ppe.name": "Persönlicher Schutz",
-      "services.ppe.what": "Bereitstellung und Wartung persönlicher Schutz- und Rettungsausrüstung für die Besatzung, damit diese im Not- und Regelbetrieb einsatzbereit ist.",
-      "services.ppe.eq1": "Überlebensanzüge", "services.ppe.eq2": "Rettungswesten", "services.ppe.eq3": "Atemschutzgeräte", "services.ppe.eq4": "Maritime PSA",
-      "services.testing.name": "Prüfung & Kalibrierung",
-      "services.testing.what": "Lastprüfungen, Kalibrierung und Geräteverifikation zur Bestätigung, dass die Ausrüstung ihre Nennleistung und Messgenauigkeit erreicht.",
-      "services.testing.eq1": "Kranlastprüfungen", "services.testing.eq2": "Pfahlzugversuche", "services.testing.eq3": "Gasmessgeräte-Verifikation", "services.testing.eq4": "Kalibrierdienste",
-      "services.gas.name": "Gas- & Drucksysteme",
-      "services.gas.what": "Inspektion, Wartung und Prüfung von Druckgasflaschen, Druckluft- und Atemluftsystemen, die in der Sicherheitsausrüstung von Schiffen eingesetzt werden.",
-      "services.gas.verifyLine": "[Leistungsumfang dieses Bereichs wird mit INPRECASA noch bestätigt]",
-      "services.gas.eq1": "Druckgasflaschen", "services.gas.eq2": "Druckluftsysteme", "services.gas.eq3": "Atemluftsysteme",
-      "facilities.kicker": "Einrichtungen", "facilities.title": "Ausgelegt für den maritimen Betrieb",
-      "facilities.intro": "Die Werkstätten auf Teneriffa und in Las Palmas unterstützen Inspektions-, Wartungs- und Prüfarbeiten im gesamten Archipel.",
-      "facilities.cap1": "Hafen- und Schiffsumgebung",
-      "facilities.cap2": "Werkstatt & Instandhaltung",
-      "facilities.cap3": "Prüfung & Kalibrierung",
-      "facilities.cap4": "Brandschutzausrüstung",
-      "process.kicker": "So arbeiten wir", "process.title": "Von der Inspektion bis zur Einsatzbereitschaft",
-      "process.s1.title": "Inspizieren", "process.s1.desc": "Technische Inspektion von Ausrüstung und Systemen an Bord oder in unserer Werkstatt.",
-      "process.s2.title": "Warten", "process.s2.desc": "Wartung und Instandhaltung gemäß den geltenden Anforderungen.",
-      "process.s3.title": "Prüfen", "process.s3.desc": "Prüfung und Verifikation bestätigen die geforderte Leistung der Ausrüstung.",
-      "process.s4.title": "Dokumentieren", "process.s4.desc": "Technische Dokumentation und Zertifizierung werden, wo zutreffend, ausgestellt.",
-      "process.s5.title": "Einsatzbereit", "process.s5.desc": "Die Ausrüstung wird einsatzbereit an das Schiff zurückgegeben.",
-      "cert.kicker": "Zertifizierungen", "cert.title": "Zertifizierungen & Zulassungen",
-      "cert.intro": "Dieser Bereich ist für die Zertifizierungen, Zulassungen und Herstellerfreigaben von INPRECASA reserviert, sobald die entsprechenden Unterlagen vorliegen.",
-      "cert.pendingLabel": "ZERTIFIKAT", "cert.pendingSub": "(Wird noch hochgeladen, INPRECASA-Unterlagen ausstehend)",
-      "cert.iso.name": "Qualitätsmanagementsystem",
-      "cert.pending1": "[Maritime Zulassung wird noch bestätigt]",
-      "cert.pending2": "[Brandschutzzulassung wird noch bestätigt]",
-      "cert.pending3": "[Herstellerfreigabe wird noch bestätigt]",
-      "cert.footnote": "Weitere Zertifizierungen, Klassifikationszulassungen und Herstellerfreigaben werden direkt mit INPRECASA bestätigt und auf Anfrage zur Verfügung gestellt.",
-      "floating.request": "Service anfragen", "floating.call": "Anrufen",
-      "loc.kicker": "Standorte", "loc.title": "Zwei Standorte. Ein maritimer Standard.",
-      "loc.hqTag": "Hauptsitz", "loc.viewMap": "Auf Google Maps ansehen",
-      "loc.panel": "Servicestandort", "loc.cta": "Hier Service anfragen",
-      "finalcta.title": "Ihr Schiff.<br>Unsere Verantwortung.",
-      "finalcta.sub": "Technische maritime Sicherheitsdienste, ausgerichtet auf Zuverlässigkeit, Compliance und Einsatzbereitschaft.",
-      "finalcta.cta": "Service anfragen",
-      "contact.kicker": "Kontakt", "contact.title": "Service anfragen",
-      "contact.intro": "Teilen Sie uns Ihr Schiff und den benötigten Service mit. Unser technisches Team bestätigt Umfang und Termin.",
-      "contact.emailLabel": "E-Mail",
-      "form.company": "Unternehmen", "form.name": "Ansprechpartner", "form.email": "E-Mail", "form.phone": "Telefon",
-      "form.vessel": "Schiffsname", "form.imo": "IMO-Nummer", "form.service": "Benötigter Service",
-      "form.serviceSelect": "Service auswählen", "form.serviceOther": "Sonstiges / unsicher",
-      "form.location": "Standort", "form.locationSelect": "Standort auswählen", "form.locationOther": "Sonstiger",
-      "form.date": "Wunschtermin", "form.document": "Dokument hochladen", "form.message": "Nachricht",
-      "form.submit": "Anfrage senden",
-      "form.statusMsg": "Dies ist ein Design-Prototyp — das Formular ist noch nicht an ein Backend angebunden.",
-      "footer.tagline": "Maritime Sicherheit & Brandschutz", "footer.siteHeading": "Seite",
-      "footer.langHeading": "Sprachen", "footer.contactHeading": "Kontakt", "footer.legalHeading": "Rechtliches",
-      "footer.privacy": "Datenschutz", "footer.cookies": "Cookies", "footer.legal": "Impressum",
-      "footer.rights": "© <span id=\"year\"></span> Industria de Prevención Canaria, S.L. — INPRECASA"
-    },
-    fr: {
-      "a11y.skip": "Aller au contenu",
-      "nav.home": "Accueil", "nav.about": "Entreprise", "nav.services": "Services",
-      "nav.certifications": "Certifications", "nav.locations": "Sites", "nav.contact": "Contact",
-      "nav.requestService": "Demander un service",
-      "hero.eyebrow": "Industria de Prevención Canaria, S.L. — Tenerife · Las Palmas",
-      "hero.headline": "Sécurité maritime.<br>Conçue pour la mer.",
-      "hero.sub": "Services spécialisés de sécurité maritime, de sauvetage et de protection incendie pour l'industrie maritime aux îles Canaries.",
-      "hero.ctaPrimary": "Demander un service", "hero.ctaSecondary": "Découvrir les services",
-      "proof.years": "Années d'expérience en sécurité maritime",
-      "proof.locations": "Sites — Tenerife + Gran Canaria",
-      "proof.iso": "Système de management de la qualité", "proof.verify": "[détails en cours de confirmation]",
-      "proof.services": "Lignes de service",
-      "proof.network": "Réseau de services maritimes aux Canaries",
-      "about.kicker": "À propos d'INPRECASA", "about.title": "La sécurité maritime est notre métier.",
-      "about.lead": "INPRECASA est la marque commerciale d'Industria de Prevención Canaria, S.L., une entreprise familiale basée aux îles Canaries.",
-      "about.p1": "Depuis plus de trente ans, nous fournissons des services de sécurité maritime et de protection incendie aux armateurs, compagnies maritimes et services techniques de tout l'archipel.",
-      "about.p2": "Nous opérons depuis deux sites — notre siège à Tenerife et une seconde base à Las Palmas de Gran Canaria — en réunissant expertise technique, inspection, entretien, essais et maintenance des équipements de sécurité chez un seul et même prestataire.",
-      "services.kicker": "Services", "services.title": "Quatre domaines de compétence technique",
-      "services.labelWhat": "Ce que nous faisons", "services.labelEquipment": "Équipements",
-      "services.labelCompliance": "Conformité", "services.labelWho": "Nos clients",
-      "services.verifyNote": "[Normes et homologations applicables en cours de confirmation avec INPRECASA]",
-      "services.whoVerify": "[Secteurs desservis à confirmer]",
-      "services.cta": "Demander ce service",
-      "services.lsa.name": "Moyens de sauvetage",
-      "services.lsa.what": "Inspection, entretien et certification des radeaux et embarcations de sauvetage, y compris les systèmes de mise à l'eau et de récupération, pour que l'équipement soit prêt en cas d'urgence.",
-      "services.lsa.eq1": "Radeaux de sauvetage", "services.lsa.eq2": "Embarcations de sauvetage",
-      "services.lsa.eq3": "Systèmes d'évacuation maritime", "services.lsa.eq4": "Systèmes de mise à l'eau et de récupération",
-      "services.fire.name": "Sécurité incendie",
-      "services.fire.what": "Installation, entretien et essais des systèmes de détection, d'extinction et de prévention incendie, protégeant les navires et équipements contre le risque de feu.",
-      "services.fire.eq1": "Systèmes de détection incendie", "services.fire.eq2": "Systèmes d'extinction incendie", "services.fire.eq3": "Équipements de prévention incendie",
-      "services.ppe.name": "Protection individuelle",
-      "services.ppe.what": "Fourniture et entretien des équipements de protection individuelle et de sauvetage pour l'équipage, garantissant leur disponibilité en situation d'urgence comme en usage courant.",
-      "services.ppe.eq1": "Combinaisons d'immersion", "services.ppe.eq2": "Gilets de sauvetage", "services.ppe.eq3": "Appareils respiratoires", "services.ppe.eq4": "EPI maritime",
-      "services.testing.name": "Essais & étalonnage",
-      "services.testing.what": "Essais de charge, étalonnage et vérification d'instruments, confirmant que l'équipement atteint sa capacité nominale et sa précision de mesure.",
-      "services.testing.eq1": "Essais de charge de grues", "services.testing.eq2": "Essais de traction sur bollard", "services.testing.eq3": "Vérification de détecteurs de gaz", "services.testing.eq4": "Services d'étalonnage",
-      "services.gas.name": "Systèmes de gaz & pression",
-      "services.gas.what": "Inspection, entretien et essais des bouteilles de gaz sous pression, systèmes d'air comprimé et d'air respirable utilisés dans les opérations de sécurité du navire.",
-      "services.gas.verifyLine": "[Périmètre de cette ligne de service en cours de confirmation avec INPRECASA]",
-      "services.gas.eq1": "Bouteilles de gaz sous pression", "services.gas.eq2": "Systèmes d'air comprimé", "services.gas.eq3": "Systèmes d'air respirable",
-      "facilities.kicker": "Installations", "facilities.title": "Conçus pour l'exploitation maritime",
-      "facilities.intro": "Les ateliers de Tenerife et de Las Palmas soutiennent les travaux d'inspection, d'entretien et d'essais dans tout l'archipel.",
-      "facilities.cap1": "Environnement portuaire et navires",
-      "facilities.cap2": "Atelier & entretien",
-      "facilities.cap3": "Essais & étalonnage",
-      "facilities.cap4": "Équipements de sécurité incendie",
-      "process.kicker": "Notre méthode", "process.title": "De l'inspection à la mise en service",
-      "process.s1.title": "Inspecter", "process.s1.desc": "Inspection technique des équipements et systèmes, à bord ou dans notre atelier.",
-      "process.s2.title": "Entretenir", "process.s2.desc": "Entretien et maintenance réalisés conformément aux exigences applicables.",
-      "process.s3.title": "Tester", "process.s3.desc": "Les essais et vérifications confirment que l'équipement répond aux exigences.",
-      "process.s4.title": "Documenter", "process.s4.desc": "La documentation technique et la certification sont délivrées le cas échéant.",
-      "process.s5.title": "Prêt", "process.s5.desc": "L'équipement est restitué au navire, prêt à l'emploi.",
-      "cert.kicker": "Certifications", "cert.title": "Certifications et homologations",
-      "cert.intro": "Cette section est réservée aux certifications, homologations et autorisations de fabricant d'INPRECASA, dès réception des documents correspondants.",
-      "cert.pendingLabel": "CERTIFICAT", "cert.pendingSub": "(En cours d'ajout, documentation INPRECASA en attente)",
-      "cert.iso.name": "Système de management de la qualité",
-      "cert.pending1": "[Homologation maritime à confirmer]",
-      "cert.pending2": "[Homologation protection incendie à confirmer]",
-      "cert.pending3": "[Homologation fabricant à confirmer]",
-      "cert.footnote": "Les autres certifications, homologations de sociétés de classification et autorisations de fabricant sont confirmées directement avec INPRECASA et fournies sur demande.",
-      "floating.request": "Demander un service", "floating.call": "Appeler",
-      "loc.kicker": "Sites", "loc.title": "Deux sites. Un même standard maritime.",
-      "loc.panel": "Base de service", "loc.cta": "Demander un service ici",
-      "loc.hqTag": "Siège social", "loc.viewMap": "Voir sur Google Maps",
-      "finalcta.title": "Votre navire.<br>Notre responsabilité.",
-      "finalcta.sub": "Des services techniques de sécurité maritime fondés sur la fiabilité, la conformité et la disponibilité opérationnelle.",
-      "finalcta.cta": "Demander un service",
-      "contact.kicker": "Contact", "contact.title": "Demander un service",
-      "contact.intro": "Parlez-nous de votre navire et du service souhaité. Notre équipe technique confirmera le périmètre et le planning.",
-      "contact.emailLabel": "E-mail",
-      "form.company": "Société", "form.name": "Personne à contacter", "form.email": "E-mail", "form.phone": "Téléphone",
-      "form.vessel": "Nom du navire", "form.imo": "Numéro IMO", "form.service": "Service demandé",
-      "form.serviceSelect": "Sélectionner un service", "form.serviceOther": "Autre / incertain",
-      "form.location": "Site", "form.locationSelect": "Sélectionner un site", "form.locationOther": "Autre",
-      "form.date": "Date souhaitée", "form.document": "Joindre un document", "form.message": "Message",
-      "form.submit": "Envoyer la demande",
-      "form.statusMsg": "Ceci est un prototype de design — le formulaire n'est pas encore connecté à un serveur.",
-      "footer.tagline": "Sécurité maritime et protection incendie", "footer.siteHeading": "Site",
-      "footer.langHeading": "Langues", "footer.contactHeading": "Contact", "footer.legalHeading": "Mentions légales",
-      "footer.privacy": "Politique de confidentialité", "footer.cookies": "Cookies", "footer.legal": "Mentions légales",
-      "footer.rights": "© <span id=\"year\"></span> Industria de Prevención Canaria, S.L. — INPRECASA"
-    },
-    it: {
-      "a11y.skip": "Vai al contenuto",
-      "nav.home": "Home", "nav.about": "Azienda", "nav.services": "Servizi",
-      "nav.certifications": "Certificazioni", "nav.locations": "Sedi", "nav.contact": "Contatti",
-      "nav.requestService": "Richiedi servizio",
-      "hero.eyebrow": "Industria de Prevención Canaria, S.L. — Tenerife · Las Palmas",
-      "hero.headline": "Sicurezza marittima.<br>Progettata per il mare.",
-      "hero.sub": "Servizi specializzati di sicurezza marittima, salvataggio e protezione antincendio per l'industria marittima nelle Isole Canarie.",
-      "hero.ctaPrimary": "Richiedi un servizio", "hero.ctaSecondary": "Scopri i servizi",
-      "proof.years": "Anni di esperienza nella sicurezza marittima",
-      "proof.locations": "Sedi — Tenerife + Gran Canaria",
-      "proof.iso": "Sistema di gestione della qualità", "proof.verify": "[dettagli in corso di conferma]",
-      "proof.services": "Linee di servizio",
-      "proof.network": "Rete di servizi marittimi nelle Canarie",
-      "about.kicker": "Su INPRECASA", "about.title": "La sicurezza marittima è il nostro mestiere.",
-      "about.lead": "INPRECASA è il marchio commerciale di Industria de Prevención Canaria, S.L., azienda familiare con sede nelle Isole Canarie.",
-      "about.p1": "Da oltre trent'anni forniamo servizi di sicurezza marittima e protezione antincendio ad armatori, compagnie di navigazione e uffici tecnici in tutto l'arcipelago.",
-      "about.p2": "Operiamo da due sedi — la nostra sede centrale a Tenerife e una seconda base a Las Palmas di Gran Canaria — riunendo competenza tecnica, ispezione, manutenzione, collaudo e assistenza delle attrezzature di sicurezza sotto un unico fornitore.",
-      "services.kicker": "Servizi", "services.title": "Quattro aree di competenza tecnica",
-      "services.labelWhat": "Cosa facciamo", "services.labelEquipment": "Attrezzature",
-      "services.labelCompliance": "Conformità", "services.labelWho": "A chi ci rivolgiamo",
-      "services.verifyNote": "[Norme e omologazioni applicabili in corso di conferma con INPRECASA]",
-      "services.whoVerify": "[Settori serviti da confermare]",
-      "services.cta": "Richiedi questo servizio",
-      "services.lsa.name": "Mezzi di salvataggio",
-      "services.lsa.what": "Ispezione, manutenzione e certificazione di zattere e scialuppe di salvataggio, compresi i sistemi di calata e recupero, affinché l'attrezzatura sia pronta in caso di emergenza.",
-      "services.lsa.eq1": "Zattere di salvataggio", "services.lsa.eq2": "Scialuppe di salvataggio",
-      "services.lsa.eq3": "Sistemi di evacuazione marittima", "services.lsa.eq4": "Sistemi di calata e recupero",
-      "services.fire.name": "Sicurezza antincendio",
-      "services.fire.what": "Installazione, manutenzione e collaudo di sistemi di rilevazione, estinzione e prevenzione incendi, a protezione di navi e attrezzature dal rischio di incendio.",
-      "services.fire.eq1": "Sistemi di rilevazione incendi", "services.fire.eq2": "Sistemi di estinzione incendi", "services.fire.eq3": "Attrezzature antincendio",
-      "services.ppe.name": "Protezione individuale",
-      "services.ppe.what": "Fornitura e manutenzione di dispositivi di protezione individuale e di salvataggio per l'equipaggio, garantendone la disponibilità in emergenza e nell'uso quotidiano.",
-      "services.ppe.eq1": "Tute da immersione", "services.ppe.eq2": "Giubbotti di salvataggio", "services.ppe.eq3": "Autorespiratori", "services.ppe.eq4": "DPI marittimi",
-      "services.testing.name": "Collaudo e taratura",
-      "services.testing.what": "Prove di carico, taratura e verifica strumenti, a conferma che l'attrezzatura raggiunga la capacità nominale e la precisione di misura previste.",
-      "services.testing.eq1": "Prove di carico gru", "services.testing.eq2": "Prove di trazione bollard", "services.testing.eq3": "Verifica rilevatori di gas", "services.testing.eq4": "Servizi di taratura",
-      "services.gas.name": "Sistemi gas e pressione",
-      "services.gas.what": "Ispezione, manutenzione e collaudo di bombole di gas in pressione, sistemi di aria compressa e aria respirabile utilizzati nelle operazioni di sicurezza a bordo.",
-      "services.gas.verifyLine": "[Ambito di questa linea di servizio in corso di conferma con INPRECASA]",
-      "services.gas.eq1": "Bombole di gas in pressione", "services.gas.eq2": "Sistemi di aria compressa", "services.gas.eq3": "Sistemi di aria respirabile",
-      "facilities.kicker": "Strutture", "facilities.title": "Pensati per l'operatività marittima",
-      "facilities.intro": "Le officine di Tenerife e Las Palmas supportano le attività di ispezione, manutenzione e collaudo in tutto l'arcipelago.",
-      "facilities.cap1": "Ambiente portuale e navale",
-      "facilities.cap2": "Officina e manutenzione",
-      "facilities.cap3": "Collaudo e taratura",
-      "facilities.cap4": "Attrezzature antincendio",
-      "process.kicker": "Come lavoriamo", "process.title": "Dall'ispezione alla messa in servizio",
-      "process.s1.title": "Ispezionare", "process.s1.desc": "Ispezione tecnica di attrezzature e sistemi, a bordo o presso la nostra officina.",
-      "process.s2.title": "Manutenere", "process.s2.desc": "Manutenzione svolta in conformità ai requisiti applicabili.",
-      "process.s3.title": "Collaudare", "process.s3.desc": "Il collaudo e la verifica confermano che l'attrezzatura funziona come richiesto.",
-      "process.s4.title": "Documentare", "process.s4.desc": "Documentazione tecnica e certificazione vengono rilasciate ove applicabile.",
-      "process.s5.title": "Pronto", "process.s5.desc": "L'attrezzatura viene riconsegnata alla nave, pronta per l'uso operativo.",
-      "cert.kicker": "Certificazioni", "cert.title": "Certificazioni e omologazioni",
-      "cert.intro": "Questa sezione è riservata alle certificazioni, omologazioni e autorizzazioni di produttore di INPRECASA, non appena sarà fornita la documentazione.",
-      "cert.pendingLabel": "CERTIFICATO", "cert.pendingSub": "(In caricamento, in attesa della documentazione INPRECASA)",
-      "cert.iso.name": "Sistema di Gestione della Qualità",
-      "cert.pending1": "[Omologazione marittima da confermare]",
-      "cert.pending2": "[Omologazione antincendio da confermare]",
-      "cert.pending3": "[Omologazione del produttore da confermare]",
-      "cert.footnote": "Ulteriori certificazioni, omologazioni di società di classificazione e autorizzazioni di produttore vengono confermate direttamente con INPRECASA e fornite su richiesta.",
-      "floating.request": "Richiedi servizio", "floating.call": "Chiama",
-      "loc.kicker": "Sedi", "loc.title": "Due sedi. Un unico standard marittimo.",
-      "loc.panel": "Sede operativa", "loc.cta": "Richiedi servizio qui",
-      "loc.hqTag": "Sede centrale", "loc.viewMap": "Visualizza su Google Maps",
-      "finalcta.title": "La vostra nave.<br>La nostra responsabilità.",
-      "finalcta.sub": "Servizi tecnici di sicurezza marittima orientati ad affidabilità, conformità normativa e prontezza operativa.",
-      "finalcta.cta": "Richiedi un servizio",
-      "contact.kicker": "Contatti", "contact.title": "Richiedi un servizio",
-      "contact.intro": "Raccontateci della vostra nave e del servizio richiesto. Il nostro team tecnico confermerà ambito e tempistiche.",
-      "contact.emailLabel": "E-mail",
-      "form.company": "Azienda", "form.name": "Referente", "form.email": "E-mail", "form.phone": "Telefono",
-      "form.vessel": "Nome nave", "form.imo": "Numero IMO", "form.service": "Servizio richiesto",
-      "form.serviceSelect": "Seleziona un servizio", "form.serviceOther": "Altro / non sicuro",
-      "form.location": "Sede", "form.locationSelect": "Seleziona una sede", "form.locationOther": "Altra",
-      "form.date": "Data preferita", "form.document": "Carica documento", "form.message": "Messaggio",
-      "form.submit": "Invia richiesta",
-      "form.statusMsg": "Questo è un prototipo di design — l'invio del modulo non è ancora collegato a un backend.",
-      "footer.tagline": "Sicurezza Marittima e Protezione Antincendio", "footer.siteHeading": "Sito",
-      "footer.langHeading": "Lingue", "footer.contactHeading": "Contatti", "footer.legalHeading": "Note legali",
-      "footer.privacy": "Informativa sulla privacy", "footer.cookies": "Cookie", "footer.legal": "Note legali",
-      "footer.rights": "© <span id=\"year\"></span> Industria de Prevención Canaria, S.L. — INPRECASA"
-    }
-  };
-
-  var STORAGE_KEY = "inprecasa-lang";
-  var supported = ["en", "es", "fr", "de", "it"];
-
-  function getInitialLang() {
-    try {
-      var saved = window.localStorage.getItem(STORAGE_KEY);
-      if (saved && supported.indexOf(saved) !== -1) return saved;
-    } catch (e) { /* localStorage unavailable */ }
-    var nav = (navigator.language || "en").slice(0, 2).toLowerCase();
-    return supported.indexOf(nav) !== -1 ? nav : "en";
-  }
-
-  function applyLang(lang) {
-    if (supported.indexOf(lang) === -1) lang = "en";
-    var dict = translations[lang];
-
-    document.querySelectorAll("[data-i18n]").forEach(function (el) {
-      var key = el.getAttribute("data-i18n");
-      if (dict[key] !== undefined) el.textContent = dict[key];
-    });
-    document.querySelectorAll("[data-i18n-html]").forEach(function (el) {
-      var key = el.getAttribute("data-i18n-html");
-      if (dict[key] !== undefined) el.innerHTML = dict[key];
-    });
-
-    document.documentElement.setAttribute("lang", lang);
-
-    document.querySelectorAll(".lang-option, .footer-lang").forEach(function (btn) {
-      btn.classList.toggle("is-active", btn.getAttribute("data-lang") === lang);
-    });
-    var toggleLabel = document.getElementById("lang-toggle-label");
-    if (toggleLabel) toggleLabel.textContent = lang.toUpperCase();
-
-    var yearEl = document.getElementById("year");
-    if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-    try { window.localStorage.setItem(STORAGE_KEY, lang); } catch (e) { /* ignore */ }
-
-    window.__inprecasaLang = lang;
-  }
-
-  /* Dropdown open/close */
-  var langSwitch = document.getElementById("lang-switch");
-  var langToggle = document.getElementById("lang-toggle");
-  if (langToggle && langSwitch) {
-    langToggle.addEventListener("click", function (e) {
-      e.stopPropagation();
-      var isOpen = langSwitch.classList.toggle("is-open");
-      langToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
-    });
-    document.addEventListener("click", function (e) {
-      if (!langSwitch.contains(e.target)) {
-        langSwitch.classList.remove("is-open");
-        langToggle.setAttribute("aria-expanded", "false");
-      }
-    });
-    document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape") {
-        langSwitch.classList.remove("is-open");
-        langToggle.setAttribute("aria-expanded", "false");
-      }
-    });
-  }
-
-  document.querySelectorAll(".lang-option, .footer-lang").forEach(function (btn) {
-    btn.addEventListener("click", function (e) {
-      e.preventDefault();
-      applyLang(btn.getAttribute("data-lang"));
-      if (langSwitch) {
-        langSwitch.classList.remove("is-open");
-        langToggle.setAttribute("aria-expanded", "false");
-      }
-    });
-  });
-
-  applyLang(getInitialLang());
-
-  /* ========================================================================
-     Sticky header condensed state
-     ======================================================================== */
-  var header = document.getElementById("site-header");
-  function onScroll() {
-    if (window.scrollY > 40) header.classList.add("is-condensed");
-    else header.classList.remove("is-condensed");
-  }
-  window.addEventListener("scroll", onScroll, { passive: true });
-  onScroll();
-
-  /* ========================================================================
-     Mobile nav toggle
-     ======================================================================== */
-  var navToggle = document.getElementById("nav-toggle");
-  var mainNav = document.getElementById("main-nav");
-  navToggle.addEventListener("click", function () {
-    var isOpen = mainNav.classList.toggle("is-open");
-    navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
-  });
-  mainNav.querySelectorAll("a").forEach(function (link) {
-    link.addEventListener("click", function () {
-      mainNav.classList.remove("is-open");
-      navToggle.setAttribute("aria-expanded", "false");
-    });
-  });
-
-  /* ========================================================================
-     Service explorer (interactive tab panel)
-     ======================================================================== */
-  var serviceData = {
-    lsa: {
-      code: "01",
-      img: "https://images.pexels.com/photos/22305102/pexels-photo-22305102.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      alt: "Orange lifeboat secured on a ship deck",
-      nameKey: "services.lsa.name", whatKey: "services.lsa.what",
-      eqKeys: ["services.lsa.eq1", "services.lsa.eq2", "services.lsa.eq3", "services.lsa.eq4"]
-    },
-    fire: {
-      code: "02",
-      img: "https://images.pexels.com/photos/29106030/pexels-photo-29106030.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      alt: "Fire extinguishers stored in an industrial setting",
-      nameKey: "services.fire.name", whatKey: "services.fire.what",
-      eqKeys: ["services.fire.eq2", "services.fire.eq3"]
-    },
-    ppe: {
-      code: "03",
-      img: "https://images.pexels.com/photos/8487733/pexels-photo-8487733.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      alt: "Close-up of personal protective equipment, gloves and helmet",
-      nameKey: "services.ppe.name", whatKey: "services.ppe.what",
-      eqKeys: ["services.ppe.eq1", "services.ppe.eq2", "services.ppe.eq3", "services.ppe.eq4"]
-    },
-    testing: {
-      code: "04",
-      img: "https://images.pexels.com/photos/16630111/pexels-photo-16630111.jpeg?auto=compress&cs=tinysrgb&w=1200",
-      alt: "Precision caliper measuring industrial machinery in a workshop",
-      nameKey: "services.testing.name", whatKey: "services.testing.what",
-      eqKeys: ["services.testing.eq1", "services.testing.eq2", "services.testing.eq3", "services.testing.eq4"]
-    }
-  };
-
-  var activeServiceId = "lsa";
-  var serviceNavItems = document.querySelectorAll(".service-nav-item");
-  var panelImg = document.getElementById("service-panel-img");
-  var panelCode = document.getElementById("service-panel-code");
-  var panelName = document.getElementById("service-panel-name");
-  var panelWhat = document.getElementById("service-panel-what");
-  var panelEq = document.getElementById("service-panel-eq");
-
-  function renderServicePanel(id) {
-    var data = serviceData[id];
-    if (!data) return;
-    var lang = window.__inprecasaLang || "en";
-    var dict = translations[lang];
-
-    if (panelImg) {
-      panelImg.style.opacity = "0";
-      window.setTimeout(function () {
-        panelImg.src = data.img;
-        panelImg.alt = data.alt;
-        panelImg.style.opacity = "1";
-      }, 120);
-    }
-    if (panelCode) panelCode.textContent = data.code;
-    if (panelName) {
-      panelName.textContent = dict[data.nameKey] || "";
-      panelName.setAttribute("data-i18n", data.nameKey);
-    }
-    if (panelWhat) {
-      panelWhat.textContent = dict[data.whatKey] || "";
-      panelWhat.setAttribute("data-i18n", data.whatKey);
-    }
-    if (panelEq) {
-      panelEq.innerHTML = "";
-      data.eqKeys.forEach(function (key) {
-        var li = document.createElement("li");
-        li.textContent = dict[key] || "";
-        li.setAttribute("data-i18n", key);
-        panelEq.appendChild(li);
-      });
-    }
-
-    var panelEl = document.querySelector(".service-panel");
-    if (panelEl) {
-      panelEl.classList.remove("service-fade");
-      void panelEl.offsetWidth;
-      panelEl.classList.add("service-fade");
-    }
-  }
-
-  serviceNavItems.forEach(function (item) {
-    item.addEventListener("click", function () {
-      var id = item.getAttribute("data-service-id");
-      if (id === activeServiceId) return;
-      activeServiceId = id;
-      serviceNavItems.forEach(function (other) {
-        other.classList.toggle("is-active", other === item);
-        other.setAttribute("aria-selected", other === item ? "true" : "false");
-      });
-      renderServicePanel(id);
-    });
-  });
-
-  renderServicePanel(activeServiceId);
-
-  /* ========================================================================
-     Process — scroll-driven progress line
-     ======================================================================== */
-  var processSteps = document.querySelectorAll(".process-step");
-  var processFill = document.getElementById("process-line-fill");
-  if (processSteps.length && "IntersectionObserver" in window) {
-    var visibleSteps = new Set();
-    var stepObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        var idx = Number(entry.target.getAttribute("data-step"));
-        if (entry.isIntersecting) visibleSteps.add(idx);
-        entry.target.classList.toggle("is-active", entry.isIntersecting);
-      });
-      var maxVisible = visibleSteps.size ? Math.max.apply(null, Array.from(visibleSteps)) : -1;
-      var pct = processSteps.length > 1 ? (maxVisible / (processSteps.length - 1)) * 100 : 0;
-      if (processFill) processFill.style.width = Math.max(0, Math.min(100, pct)) + "%";
-    }, { threshold: 0.6, rootMargin: "0px 0px -20% 0px" });
-    processSteps.forEach(function (step) { stepObserver.observe(step); });
-  } else {
-    processSteps.forEach(function (step) { step.classList.add("is-active"); });
-    if (processFill) processFill.style.width = "100%";
-  }
-
-  /* ========================================================================
-     Scroll reveal
-     ======================================================================== */
-  var revealTargets = document.querySelectorAll(
-    ".trust-item, .service-explorer, .facilities-item, .cert-card, .location-card, .final-cta-inner, .contact-grid, .about-grid"
-  );
-  revealTargets.forEach(function (el) { el.setAttribute("data-reveal", ""); });
-
-  if ("IntersectionObserver" in window) {
-    var observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12, rootMargin: "0px 0px -60px 0px" });
-    revealTargets.forEach(function (el) { observer.observe(el); });
-  } else {
-    revealTargets.forEach(function (el) { el.classList.add("is-visible"); });
-  }
-
-  /* ========================================================================
-     Contact form (prototype: no backend wired up)
-     ======================================================================== */
-  var form = document.getElementById("contact-form");
-  var status = document.getElementById("form-status");
-  if (form) {
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-      var lang = window.__inprecasaLang || "en";
-      status.textContent = translations[lang]["form.statusMsg"];
-    });
-  }
-})();
-
-</script>
+<script src="assets/js/i18n.js"></script>
+<script src="assets/js/main.js"></script>
 </body>
 </html>
