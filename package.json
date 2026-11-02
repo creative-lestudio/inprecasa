@@ -1,0 +1,13 @@
+{
+  "name": "inprecasa-web",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Static multilingual site generator for INPRECASA",
+  "scripts": {
+    "build": "node tools/build.mjs",
+    "build:preview": "SITE_URL=https://creative-lestudio.github.io/inprecasa PREVIEW=1 node tools/build.mjs",
+    "serve": "python3 -m http.server 8000"
+  },
+  "devDependencies": { "cheerio": "1.0.0" }
+}

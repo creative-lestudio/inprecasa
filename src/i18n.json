@@ -1,5 +1,4 @@
-/* INPRECASA i18n dictionary — EN, ES, DE, FR, IT. Keys are referenced by data-i18n / data-i18n-html in the HTML. */
-window.INPRECASA_I18N = {
+{
  "en": {
   "a11y.skip": "Skip to content",
   "nav.home": "Home",
@@ -184,7 +183,13 @@ window.INPRECASA_I18N = {
   "footer.services": "Services",
   "footer.company": "Company",
   "footer.funding": "Funding",
-  "footer.fundingNote": "Subsidies documents"
+  "footer.fundingNote": "Subsidies documents",
+  "svc.more": "View service details",
+  "svc.related": "Other services",
+  "svc.page.sub": "Tenerife & Las Palmas",
+  "crumb.services": "Services",
+  "meta.title": "INPRECASA | Maritime Safety & Fire Protection — Canary Islands",
+  "meta.description": "Inspection, servicing and certification of liferafts, lifeboats, fire-fighting systems and personal protective equipment, plus crane load tests and calibration. Bases in Tenerife and Las Palmas."
  },
  "es": {
   "a11y.skip": "Ir al contenido",
@@ -370,7 +375,13 @@ window.INPRECASA_I18N = {
   "footer.services": "Servicios",
   "footer.company": "Empresa",
   "footer.funding": "Subvenciones",
-  "footer.fundingNote": "Documentos de subvenciones"
+  "footer.fundingNote": "Documentos de subvenciones",
+  "svc.more": "Ver detalle del servicio",
+  "svc.related": "Otros servicios",
+  "svc.page.sub": "Tenerife y Las Palmas",
+  "crumb.services": "Servicios",
+  "meta.title": "INPRECASA | Seguridad marítima y protección contra incendios — Canarias",
+  "meta.description": "Inspección, mantenimiento y certificación de balsas salvavidas, botes, sistemas contra incendios y EPI, además de pruebas de carga de grúas y calibración. Sedes en Tenerife y Las Palmas."
  },
  "de": {
   "a11y.skip": "Zum Inhalt springen",
@@ -556,7 +567,13 @@ window.INPRECASA_I18N = {
   "footer.services": "Leistungen",
   "footer.company": "Unternehmen",
   "footer.funding": "Förderungen",
-  "footer.fundingNote": "Förderdokumente"
+  "footer.fundingNote": "Förderdokumente",
+  "svc.more": "Leistung im Detail",
+  "svc.related": "Weitere Leistungen",
+  "svc.page.sub": "Teneriffa & Las Palmas",
+  "crumb.services": "Leistungen",
+  "meta.title": "INPRECASA | Schiffssicherheit & Brandschutz — Kanarische Inseln",
+  "meta.description": "Inspektion, Wartung und Zertifizierung von Rettungsinseln, Rettungsbooten, Brandbekämpfungssystemen und Schutzausrüstung sowie Kranlastprüfungen und Kalibrierung. Standorte auf Teneriffa und in Las Palmas."
  },
  "fr": {
   "a11y.skip": "Aller au contenu",
@@ -742,7 +759,13 @@ window.INPRECASA_I18N = {
   "footer.services": "Services",
   "footer.company": "Entreprise",
   "footer.funding": "Subventions",
-  "footer.fundingNote": "Documents de subventions"
+  "footer.fundingNote": "Documents de subventions",
+  "svc.more": "Voir le détail du service",
+  "svc.related": "Autres services",
+  "svc.page.sub": "Tenerife et Las Palmas",
+  "crumb.services": "Services",
+  "meta.title": "INPRECASA | Sécurité maritime et protection incendie — Îles Canaries",
+  "meta.description": "Inspection, maintenance et certification de radeaux, canots, systèmes anti-incendie et EPI, essais de charge de grues et étalonnage. Bases à Tenerife et à Las Palmas."
  },
  "it": {
   "a11y.skip": "Vai al contenuto",
@@ -928,6 +951,12 @@ window.INPRECASA_I18N = {
   "footer.services": "Servizi",
   "footer.company": "Azienda",
   "footer.funding": "Sovvenzioni",
-  "footer.fundingNote": "Documenti sulle sovvenzioni"
+  "footer.fundingNote": "Documenti sulle sovvenzioni",
+  "svc.more": "Dettagli del servizio",
+  "svc.related": "Altri servizi",
+  "svc.page.sub": "Tenerife e Las Palmas",
+  "crumb.services": "Servizi",
+  "meta.title": "INPRECASA | Sicurezza marittima e antincendio — Isole Canarie",
+  "meta.description": "Ispezione, manutenzione e certificazione di zattere, imbarcazioni di salvataggio, sistemi antincendio e DPI, prove di carico gru e calibrazione. Sedi a Tenerife e Las Palmas."
  }
-};
+}

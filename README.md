@@ -2,20 +2,34 @@
 
 Sitio estático (HTML + CSS + JS vanilla, sin dependencias ni paso de build) de **Industria de Prevención Canaria, S.L.** — seguridad marítima y protección contra incendios, Canarias.
 
+## Cómo funciona
+El sitio es estático, pero **se genera** con un script (`tools/build.mjs`, usa `cheerio`) a partir de `src/home.template.html` + `src/i18n.json`:
+
+- `/` → selector de idioma (redirige según el navegador; `x-default`).
+- `/{en,es,de,fr,it}/` → portada completa, traducida y con `hreflang`, canonical y JSON-LD propios.
+- `/{lang}/{servicios}/{slug}/` → **30 páginas de servicio** (6 servicios × 5 idiomas, con slugs traducidos, p. ej. `/es/servicios/balsas-salvavidas/`).
+- `sitemap.xml` con alternates `hreflang`, `robots.txt`, `assets/js/i18n/{lang}.js`.
+
 ```bash
-python3 -m http.server 8000   # abrir http://localhost:8000
+npm install            # solo la primera vez
+npm run build:preview  # GitHub Pages (URLs del preview, noindex) ← estado actual del repo
+npm run build          # producción: https://inprecasa.com, indexable
+npm run serve          # http://localhost:8000
 ```
+**Editar textos:** `src/i18n.json` (todos los idiomas) o `src/home.template.html` (estructura), y volver a ejecutar el build. No edites a mano `es/`, `en/`, `de/`, `fr/`, `it/`, `sitemap.xml` ni `robots.txt`: se regeneran.
+
+**Salir a producción:** ejecutar `npm run build`, subir el resultado y apuntar el dominio `inprecasa.com` a Pages (Settings → Pages → Custom domain). Hasta entonces el preview lleva `noindex` para no competir con la web actual.
 
 ## Estructura
 | Ruta | Contenido |
 |---|---|
-| `index.html` | Página principal (SEO, JSON-LD, secciones) |
-| `legal.html` | Aviso legal, privacidad y cookies |
+| `src/` | Plantilla fuente y diccionario i18n |
+| `tools/build.mjs` | Generador (páginas por idioma y servicio, SEO) |
 | `assets/css/styles.css` | Estilos mobile-first; tokens de marca en `:root` |
 | `assets/js/main.js` | Comportamiento. Config al inicio: `FORM_ENDPOINT`, `APPROVALS`, `SERVICES` |
-| `assets/js/i18n.js` | Traducciones EN / ES / DE / FR / IT (`data-i18n`) |
 | `assets/img` | Fotos propias de INPRECASA (webp), logo SVG, favicon, og-image |
-| `assets/fonts` | Archivo Expanded, IBM Plex Sans/Mono (self-hosted woff2) |
+| `assets/fonts` | **Fjalla One** (titulares, la más cercana al logotipo), IBM Plex Sans/Mono (self-hosted) |
+| `legal.html` | Aviso legal, privacidad y cookies |
 
 ## Pendiente de datos del cliente
 - **Homologaciones / certificaciones**: añadir a `APPROVALS` en `main.js` (nombre + logo). Mientras esté vacío, la web muestra solo la tarjeta «solicitar homologaciones» (no hay marcadores de posición visibles).
@@ -37,8 +51,7 @@ python3 -m http.server 8000   # abrir http://localhost:8000
 | Móvil: barra con un solo teléfono (Las Palmas) | Barra «Llamar / Solicitar» con selector de sede, menú a pantalla completa, pestañas numeradas, objetivos táctiles ≥ 44 px, inputs 16 px, safe-area |
 | Erratas en la web actual («INMEDIACY», «PHILOSPHY») | Valores redactados correctamente en 5 idiomas |
 
-## Siguientes pasos recomendados
-1. URLs por idioma (`/es/`, `/en/`…) con `hreflang` para SEO multilingüe.
-2. Páginas por servicio (palabras clave: «revisión balsas salvavidas Tenerife», etc.).
-3. Analítica respetuosa con la privacidad + banner de cookies solo si se añade.
-4. Casos de éxito / clientes y homologaciones con logos cuando haya material.
+## Pendiente / siguientes pasos
+1. Texto técnico propio para cada página de servicio (hoy usan solo contenido verificado de la web actual).
+2. Analítica respetuosa con la privacidad + banner de cookies, solo si se decide añadirla.
+3. Casos de éxito / clientes y homologaciones con logos cuando haya material.

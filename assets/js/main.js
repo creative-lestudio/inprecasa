@@ -16,58 +16,31 @@
   var APPROVALS = [];
 
   var SERVICES = [
-    { id: "liferafts", img: "assets/img/liferafts", alt: "Liferaft inflated on open water", eq: ["services.lsa.eq1", "services.lsa.eq3"] },
-    { id: "lifeboats", img: "assets/img/lifeboats", alt: "Lifeboat entering the water", eq: ["services.lsa.eq2", "services.lsa.eq4"] },
-    { id: "fire", img: "assets/img/firefighting", alt: "Firefighter handling a fire extinguisher", eq: ["services.fire.eq1", "services.fire.eq2", "services.fire.eq3"] },
-    { id: "ppe", img: "assets/img/ppe", alt: "Lifebuoys on a vessel deck at sunset", eq: ["services.ppe.eq1", "services.ppe.eq2", "services.ppe.eq3", "services.ppe.eq4"] },
-    { id: "crane", img: "assets/img/crane-load-test", alt: "Crane lifting a heavy load at a port", eq: ["services.testing.eq1", "services.testing.eq2"] },
-    { id: "calib", img: "assets/img/calibration", alt: "Technician calibrating gas detectors in a laboratory", eq: ["services.testing.eq3", "services.testing.eq4"] }
+    { id: "liferafts", img: "assets/img/liferafts",  eq: ["services.lsa.eq1", "services.lsa.eq3"] },
+    { id: "lifeboats", img: "assets/img/lifeboats",  eq: ["services.lsa.eq2", "services.lsa.eq4"] },
+    { id: "fire", img: "assets/img/firefighting",  eq: ["services.fire.eq1", "services.fire.eq2", "services.fire.eq3"] },
+    { id: "ppe", img: "assets/img/ppe",  eq: ["services.ppe.eq1", "services.ppe.eq2", "services.ppe.eq3", "services.ppe.eq4"] },
+    { id: "crane", img: "assets/img/crane-load-test",  eq: ["services.testing.eq1", "services.testing.eq2"] },
+    { id: "calib", img: "assets/img/calibration",  eq: ["services.testing.eq3", "services.testing.eq4"] }
   ];
-
-  var META = {
-    en: { t: "INPRECASA | Maritime Safety & Fire Protection — Canary Islands", d: "Inspection, servicing and certification of liferafts, lifeboats, fire-fighting systems and personal protective equipment, plus crane load tests and calibration. Bases in Tenerife and Las Palmas." },
-    es: { t: "INPRECASA | Seguridad marítima y protección contra incendios — Canarias", d: "Inspección, mantenimiento y certificación de balsas salvavidas, botes, sistemas contra incendios y EPI, además de pruebas de carga de grúas y calibración. Sedes en Tenerife y Las Palmas." },
-    de: { t: "INPRECASA | Schiffssicherheit & Brandschutz — Kanarische Inseln", d: "Inspektion, Wartung und Zertifizierung von Rettungsinseln, Rettungsbooten, Brandbekämpfungssystemen und Schutzausrüstung sowie Kranlastprüfungen und Kalibrierung. Standorte auf Teneriffa und in Las Palmas." },
-    fr: { t: "INPRECASA | Sécurité maritime et protection incendie — Îles Canaries", d: "Inspection, maintenance et certification de radeaux, canots, systèmes anti-incendie et EPI, essais de charge de grues et étalonnage. Bases à Tenerife et à Las Palmas." },
-    it: { t: "INPRECASA | Sicurezza marittima e antincendio — Isole Canarie", d: "Ispezione, manutenzione e certificazione di zattere, imbarcazioni di salvataggio, sistemi antincendio e DPI, prove di carico gru e calibrazione. Sedi a Tenerife e Las Palmas." }
-  };
 
   var T = window.INPRECASA_I18N || {};
   var supported = ["en", "es", "de", "fr", "it"];
   var STORAGE_KEY = "inprecasa-lang";
-  var lang = "en";
+  var lang = (document.documentElement.lang || "en").slice(0, 2);
+  if (!T[lang]) lang = Object.keys(T)[0] || "en";
+  // Page depth prefix ("../", "../../../"…) derived from the favicon link, so asset URLs work on every page.
+  var BASE = ((document.querySelector('link[rel="icon"]') || {}).getAttribute && document.querySelector('link[rel="icon"]').getAttribute("href") || "assets/img/favicon.svg").replace(/assets\/img\/favicon\.svg$/, "");
   var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   function $(s, r) { return (r || document).querySelector(s); }
   function $$(s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); }
-  function t(key) { var d = T[lang] || T.en || {}; return d[key] !== undefined ? d[key] : ((T.en || {})[key] || ""); }
+  function t(key) { var d = T[lang] || {}; return d[key] !== undefined ? d[key] : ""; }
 
   /* ======================================================================
-     i18n
+     Language switch — each language is its own static URL (see tools/build.mjs).
+     The dropdown only opens/closes; links navigate and remember the choice.
      ====================================================================== */
-  function initialLang() {
-    try { var s = localStorage.getItem(STORAGE_KEY); if (s && supported.indexOf(s) > -1) return s; } catch (e) {}
-    var n = (navigator.language || "en").slice(0, 2).toLowerCase();
-    return supported.indexOf(n) > -1 ? n : "en";
-  }
-
-  function applyLang(l) {
-    if (supported.indexOf(l) === -1) l = "en";
-    lang = l;
-    $$("[data-i18n]").forEach(function (el) { var v = t(el.getAttribute("data-i18n")); if (v) el.textContent = v; });
-    $$("[data-i18n-html]").forEach(function (el) { var v = t(el.getAttribute("data-i18n-html")); if (v) el.innerHTML = v; });
-    document.documentElement.lang = l;
-    document.title = META[l].t;
-    var md = $('meta[name="description"]'); if (md) md.setAttribute("content", META[l].d);
-    $$(".lang-option, .footer-lang").forEach(function (b) { b.classList.toggle("is-active", b.getAttribute("data-lang") === l); });
-    $("#lang-label").textContent = l.toUpperCase();
-    $("#nav-toggle").setAttribute("aria-label", t("nav.menu"));
-    try { localStorage.setItem(STORAGE_KEY, l); } catch (e) {}
-    renderServices();
-    renderApprovals();
-    buildServiceSelect();
-  }
-
   var langSwitch = $("#lang-switch"), langToggle = $("#lang-toggle");
   function closeLang() { langSwitch.classList.remove("is-open"); langToggle.setAttribute("aria-expanded", "false"); }
   langToggle.addEventListener("click", function (e) {
@@ -76,9 +49,10 @@
     langToggle.setAttribute("aria-expanded", open ? "true" : "false");
   });
   document.addEventListener("click", function (e) { if (!langSwitch.contains(e.target)) closeLang(); });
-  $$(".lang-option, .footer-lang").forEach(function (b) {
-    b.addEventListener("click", function (e) { e.preventDefault(); applyLang(b.getAttribute("data-lang")); closeLang(); });
+  $$(".lang-option, .footer-lang").forEach(function (a) {
+    a.addEventListener("click", function () { try { localStorage.setItem(STORAGE_KEY, a.getAttribute("data-lang")); } catch (e) {} });
   });
+  try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) {}
 
   /* ======================================================================
      Header, mobile menu, call sheet
@@ -126,6 +100,7 @@
   function svcName(s) { return t("svc." + s.id + ".name"); }
 
   function renderServices() {
+    if (!tabsEl) return;
     tabsEl.innerHTML = "";
     SERVICES.forEach(function (s, i) {
       var b = document.createElement("button");
@@ -150,6 +125,8 @@
 
   function fillPanel(animate) {
     var s = SERVICES[activeSvc], img = $("#svc-img");
+    var slugs = {}; try { slugs = JSON.parse(tabsEl.getAttribute("data-slugs") || "{}"); } catch (e) {}
+    var more = $("#svc-more"); if (more && slugs[s.id]) more.setAttribute("href", slugs[s.id]);
     $("#svc-panel").setAttribute("aria-labelledby", "svc-tab-" + s.id);
     $("#svc-code").textContent = "0" + (activeSvc + 1) + " / 0" + SERVICES.length;
     $("#svc-name").textContent = svcName(s);
@@ -157,13 +134,14 @@
     var ul = $("#svc-eq"); ul.innerHTML = "";
     s.eq.forEach(function (k) { var li = document.createElement("li"); li.textContent = t(k); ul.appendChild(li); });
     $("#svc-cta").setAttribute("data-service", s.id);
-    var src = s.img + ".webp";
-    if (img.getAttribute("src") !== src) { img.src = src; }
-    img.alt = s.alt;
+    var src = BASE + s.img + ".webp";
+    if (img.getAttribute("src") !== src) { img.setAttribute("src", src); }
+    img.alt = svcName(s);
     if (animate) { var p = $(".svc-text"); p.classList.remove("svc-fade"); void p.offsetWidth; p.classList.add("svc-fade"); }
   }
 
   function selectService(i, animate) {
+    if (!tabsEl) return;
     activeSvc = i;
     $$(".svc-tab", tabsEl).forEach(function (b, k) {
       b.setAttribute("aria-selected", k === i ? "true" : "false"); b.tabIndex = k === i ? 0 : -1;
@@ -196,10 +174,10 @@
      Approvals (rendered only when data exists)
      ====================================================================== */
   function renderApprovals() {
-    var box = $("#approvals"); box.innerHTML = "";
+    var box = $("#approvals"); if (!box) return; box.innerHTML = "";
     APPROVALS.forEach(function (a) {
       var d = document.createElement("div"); d.className = "approval";
-      if (a.logo) { var im = document.createElement("img"); im.src = a.logo; im.alt = a.name; im.loading = "lazy"; d.appendChild(im); }
+      if (a.logo) { var im = document.createElement("img"); im.src = BASE + a.logo; im.alt = a.name; im.loading = "lazy"; d.appendChild(im); }
       var s = document.createElement("span"); s.textContent = a.name; d.appendChild(s);
       box.appendChild(d);
     });
@@ -313,8 +291,11 @@
   /* ======================================================================
      Init
      ====================================================================== */
-  $("#year").textContent = new Date().getFullYear();
   var deep = (location.hash.match(/^#services\/(\w+)/) || [])[1];
   if (deep) { var ix = SERVICES.map(function (s) { return s.id; }).indexOf(deep); if (ix > -1) activeSvc = ix; }
-  applyLang(initialLang());
+  renderServices();
+  renderApprovals();
+  buildServiceSelect();
+  var preset = document.body.getAttribute("data-service");
+  if (preset) { var sel = $("#f-service"); if (sel) sel.value = preset; }
 })();
