@@ -6,6 +6,7 @@
 
 /* ---------- Fonts (self-hosted, no third-party request) ---------- */
 @font-face { font-family: "Fjalla One"; font-weight: 400; font-display: swap; src: url("../fonts/FjallaOne-400.woff2") format("woff2"); }
+@font-face { font-family: "Barlow Semi Condensed"; font-weight: 600; font-display: swap; src: url("../fonts/BarlowSemiCondensed-600.woff2") format("woff2"); }
 @font-face { font-family: "IBM Plex Sans"; font-weight: 400; font-display: swap; src: url("../fonts/IBMPlexSans-400.woff2") format("woff2"); }
 @font-face { font-family: "IBM Plex Sans"; font-weight: 500; font-display: swap; src: url("../fonts/IBMPlexSans-500.woff2") format("woff2"); }
 @font-face { font-family: "IBM Plex Sans"; font-weight: 600; font-display: swap; src: url("../fonts/IBMPlexSans-600.woff2") format("woff2"); }
@@ -27,6 +28,7 @@
   --signal-dark: #AE3A25;
 
   --font-display: "Fjalla One", "Arial Narrow", Impact, sans-serif;
+  --font-hero: "Barlow Semi Condensed", "Arial Narrow", sans-serif;
   --font-body: "IBM Plex Sans", -apple-system, "Segoe UI", sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, monospace;
 
@@ -168,7 +170,7 @@ body.no-scroll { overflow: hidden; }
 .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(0deg, var(--navy-950) 0%, rgba(13,46,56,.55) 55%, rgba(13,46,56,.7) 100%); }
 .hero-grid { position: relative; z-index: 2; max-width: var(--max-width); margin: 0 auto; padding: 56px var(--gutter) 40px; display: grid; gap: 36px; }
 .hero-eyebrow { font-family: var(--font-mono); font-size: .72rem; color: var(--steel-light); margin-bottom: 18px; letter-spacing: .02em; }
-.hero-headline { font-size: clamp(2.6rem, 12vw, 5.6rem); line-height: 1.0; max-width: 18ch; text-transform: uppercase; letter-spacing: 0.015em; margin-bottom: 20px; text-wrap: balance; }
+.hero-headline { font-family: var(--font-hero); font-weight: 600; font-size: clamp(2.7rem, 12.5vw, 5.6rem); line-height: 1.02; max-width: 20ch; text-transform: none; letter-spacing: -0.012em; margin-bottom: 20px; text-wrap: balance; }
 .hero-sub { font-size: 1.02rem; max-width: 52ch; color: rgba(255,255,255,.88); margin-bottom: 28px; }
 .hero-actions { display: grid; gap: 12px; }
 .hero-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }

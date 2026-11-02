@@ -9,6 +9,7 @@
  */
 import { load } from "cheerio";
 import { readFileSync, writeFileSync, mkdirSync, rmSync, existsSync } from "node:fs";
+import { createHash } from "node:crypto";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -114,14 +115,25 @@ function applyHead($, { lang, title, description, canonicalPath, alternates, rel
   $('meta[name="theme-color"]').after("\n" + tags.join("\n") + "\n");
 }
 
+// Cache-busting: ?v=<content hash> on CSS/JS so browsers never mix old scripts with new HTML.
+const verCache = new Map();
+function ver(path) {
+  if (!/\.(css|js)$/.test(path)) return "";
+  if (!verCache.has(path)) {
+    const f = join(ROOT, path);
+    verCache.set(path, existsSync(f) ? "?v=" + createHash("sha1").update(readFileSync(f)).digest("hex").slice(0, 8) : "");
+  }
+  return verCache.get(path);
+}
+
 function fixPaths($, rel) {
   $("[src], [href]").each((_, el) => {
     for (const a of ["src", "href"]) {
       const v = $(el).attr(a);
-      if (v && (v.startsWith("assets/") || v.startsWith("legal.html"))) $(el).attr(a, rel + v);
+      if (v && (v.startsWith("assets/") || v.startsWith("legal.html"))) $(el).attr(a, rel + v + ver(v));
     }
   });
-  $('script[src="' + rel + 'assets/js/i18n.js"]').remove();
+  
 }
 
 function languageSwitch($, lang, altPaths, rel) {
@@ -170,7 +182,7 @@ function buildHome(lang) {
   $("#year").text(new Date().getFullYear());
 
   fixPaths($, rel);
-  $('script[src$="assets/js/main.js"]').before(`<script src="${rel}assets/js/i18n/${lang}.js"></script>\n`);
+  $('script[src*="assets/js/main.js"]').before(`<script src="${rel}assets/js/i18n/${lang}.js${ver(`assets/js/i18n/${lang}.js`)}"></script>\n`);
   languageSwitch($, lang, altPaths, rel);
   footerServices($, lang, rel);
   write(`${lang}/index.html`, $.html());
@@ -259,7 +271,7 @@ function buildService(lang, svc, idx) {
   $("#year").text(new Date().getFullYear());
 
   fixPaths($, rel);
-  $('script[src$="assets/js/main.js"]').before(`<script src="${rel}assets/js/i18n/${lang}.js"></script>\n`);
+  $('script[src*="assets/js/main.js"]').before(`<script src="${rel}assets/js/i18n/${lang}.js${ver(`assets/js/i18n/${lang}.js`)}"></script>\n`);
   languageSwitch($, lang, altPaths, rel);
   footerServices($, lang, rel);
   write(`${lang}${url.slice(lang.length + 1)}index.html`, $.html());
@@ -288,7 +300,7 @@ ${alts}
 <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
 <meta property="og:title" content="INPRECASA | Maritime Safety &amp; Fire Protection">
 <meta property="og:image" content="${abs("/assets/img/og-image.jpg")}">
-<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="stylesheet" href="assets/css/styles.css${ver("assets/css/styles.css")}">
 <script>
 (function () {
   if (/[?&]choose\\b/.test(location.search)) return;
